@@ -179,17 +179,6 @@
   border-radius: 40% 40% 0 0;
 }
 
-/* The black censor bar */
-.censored-photo__bar {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 35%;
-  height: 18%;
-  background-color: #000;
-  z-index: 2;
-}
-
 /* Category badge */
 .censored-photo__category {
   position: absolute;
@@ -202,7 +191,7 @@
   letter-spacing: 0.1em;
   font-weight: 700;
   text-align: center;
-  z-index: 3;
+  z-index: 1;
 }
 
 .censored-photo__category--conspirador {

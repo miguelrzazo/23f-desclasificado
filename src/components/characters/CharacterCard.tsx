@@ -49,15 +49,13 @@ export default function CharacterCard({
       onMouseLeave={() => setIsFlipped(false)}
     >
       <motion.div
-        className="relative w-full h-full"
-        style={{ transformStyle: "preserve-3d" }}
+        className="relative w-full h-full [transform-style:preserve-3d]"
         animate={{ rotateY: isFlipped ? 180 : 0 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
       >
         {/* Front */}
         <div
-          className="absolute inset-0 paper-texture rounded-sm shadow-md p-4 flex flex-col items-center justify-center gap-3"
-          style={{ backfaceVisibility: "hidden" }}
+          className="absolute inset-0 paper-texture rounded-sm shadow-md p-4 flex flex-col items-center justify-center gap-3 [backface-visibility:hidden] overflow-hidden"
         >
           <CensoredPhoto
             name={character.name}
@@ -84,11 +82,7 @@ export default function CharacterCard({
 
         {/* Back */}
         <div
-          className="absolute inset-0 paper-texture rounded-sm shadow-md p-4 flex flex-col overflow-y-auto"
-          style={{
-            backfaceVisibility: "hidden",
-            transform: "rotateY(180deg)",
-          }}
+          className="absolute inset-0 paper-texture rounded-sm shadow-md p-4 flex flex-col overflow-y-auto [backface-visibility:hidden] [transform:rotateY(180deg)]"
         >
           <h4 className="font-serif text-sm font-bold text-[var(--text-primary)] mb-3 border-b border-[var(--border)] pb-2">
             {lang === "es" ? "Conexiones" : "Connections"}

@@ -43,7 +43,7 @@ export default function CensoredPhoto({
     <figure className={`inline-flex flex-col items-center gap-2 ${className}`}>
       <div
         className={`censored-photo ${sizeClass} rounded overflow-hidden`}
-        aria-label={`Foto censurada de ${name}`}
+        aria-label={`Foto de ${name}`}
       >
         {image ? (
           /* Real photo with grayscale + sepia treatment */
@@ -59,9 +59,6 @@ export default function CensoredPhoto({
           /* CSS silhouette fallback (works without image assets) */
           <div className="censored-photo__silhouette" aria-hidden="true" />
         )}
-
-        {/* Censor bar across eyes */}
-        <div className="censored-photo__bar" aria-hidden="true" />
 
         {/* Category badge */}
         <div
