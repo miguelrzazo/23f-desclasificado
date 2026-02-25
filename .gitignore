@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# large source video files (compressed version lives in public/video/)
+oXTgOzcefk8.mp4
+oXTgOzcefk8.pxd

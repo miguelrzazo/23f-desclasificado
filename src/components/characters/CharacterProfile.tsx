@@ -87,6 +87,7 @@ export default function CharacterProfile({
         <CensoredPhoto
           name={character.name}
           category={character.category}
+          image={character.image}
           size="lg"
         />
         <div className="flex-1">
@@ -198,7 +199,7 @@ export default function CharacterProfile({
             </DossierSection>
           )}
 
-          {/* Personal Timeline */}
+          {/* Personal Timeline — linked to event detail pages */}
           {personalTimeline.length > 0 && (
             <DossierSection
               title={lang === "es" ? "Cronologia Personal" : "Personal Timeline"}
@@ -206,9 +207,10 @@ export default function CharacterProfile({
             >
               <div className="space-y-4">
                 {personalTimeline.map((event) => (
-                  <div
+                  <Link
                     key={event.id}
-                    className="flex gap-4 items-start border-l-2 border-[var(--border)] pl-4"
+                    href={`/cronologia/${event.id}`}
+                    className="group flex gap-4 items-start border-l-2 border-[var(--border)] pl-4 no-underline hover:border-classified-red transition-colors"
                   >
                     <div className="flex-shrink-0">
                       <time className="font-mono text-xs text-[var(--text-secondary)]">
@@ -217,14 +219,14 @@ export default function CharacterProfile({
                       </time>
                     </div>
                     <div>
-                      <h4 className="font-serif text-sm font-bold text-[var(--text-primary)]">
+                      <h4 className="font-serif text-sm font-bold text-[var(--text-primary)] group-hover:text-classified-red transition-colors">
                         {event.title[lang]}
                       </h4>
                       <p className="font-body text-xs text-[var(--text-secondary)] mt-1">
                         {event.description[lang]}
                       </p>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </DossierSection>
@@ -262,6 +264,12 @@ export default function CharacterProfile({
                     classification={doc.classification}
                     date={doc.date}
                     summary={doc.summary[lang]}
+                    documentUrl={doc.url}
+                    viewOriginalLabel={
+                      lang === "es"
+                        ? "Ver documento original (PDF)"
+                        : "View original document (PDF)"
+                    }
                   />
                 ))}
               </div>

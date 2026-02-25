@@ -200,6 +200,20 @@
     "nocheTitle": "La Noche del 23-F — Minuto a Minuto",
     "nocheDescription": "Las 18 horas que cambiaron España: desde el asalto al Congreso hasta la rendición de Tejero, rastreadas en múltiples escenarios simultáneos."
   },
+  "eventDetail": {
+    "backToTimeline": "Volver a cronología",
+    "sourceDocument": "Documento fuente",
+    "viewOriginalPdf": "Ver documento original (PDF)",
+    "relatedCharacters": "Personajes implicados",
+    "locationContext": "Ubicación",
+    "viewOnMap": "Ver en el mapa",
+    "previousEvent": "Evento anterior",
+    "nextEvent": "Siguiente evento",
+    "chapter": "Capítulo",
+    "classification": "Clasificación",
+    "noSourceFound": "Documento no identificado",
+    "sourceNote": "Fuente: Noticias de Navarra, 24/02/2026"
+  },
   "documents": {
     "title": "Corpus Documental",
     "subtitle": "Documentos desclasificados por el Consejo de Ministros: informes de inteligencia, interceptaciones telefónicas, télex diplomáticos y actas judiciales del 23-F",

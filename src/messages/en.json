@@ -200,6 +200,20 @@
     "nocheTitle": "The Night of 23-F — Minute by Minute",
     "nocheDescription": "The 18 hours that changed Spain: from the assault on Congress to Tejero's surrender, tracked across multiple simultaneous locations."
   },
+  "eventDetail": {
+    "backToTimeline": "Back to timeline",
+    "sourceDocument": "Source document",
+    "viewOriginalPdf": "View original document (PDF)",
+    "relatedCharacters": "Key figures involved",
+    "locationContext": "Location",
+    "viewOnMap": "View on map",
+    "previousEvent": "Previous event",
+    "nextEvent": "Next event",
+    "chapter": "Chapter",
+    "classification": "Classification",
+    "noSourceFound": "Document not identified",
+    "sourceNote": "Source: Noticias de Navarra, 24/02/2026"
+  },
   "documents": {
     "title": "Document Corpus",
     "subtitle": "Documents declassified by the Council of Ministers: intelligence reports, phone intercepts, diplomatic telexes, and judicial records of 23-F",

@@ -9,6 +9,7 @@ import TypewriterText from "@/components/ui/TypewriterText";
 import type { TimelineEvent as TEvent } from "@/content/data/timeline";
 import type { Character } from "@/content/data/characters";
 import { locations } from "@/content/data/locations";
+import { getDocumentBySource } from "@/content/data/helpers";
 
 interface TimelineEventProps {
   event: TEvent;
@@ -31,10 +32,14 @@ function formatDate(datetime: string, locale: string): string {
   }
 }
 
-/** Map source document to a stamp type */
+/** Map source document to a stamp type, using real doc classification when available */
 function getStampType(
   source: string
 ): "desclasificado" | "secreto" | "reservado" | "confidencial" {
+  const doc = getDocumentBySource(source);
+  if (doc && doc.classification !== "sin-clasificar") {
+    return doc.classification;
+  }
   if (source.includes("_R.")) return "reservado";
   if (source.startsWith("D.")) return "confidencial";
   return "secreto";
@@ -58,6 +63,8 @@ export default function TimelineEventCard({
   const eventCharacters = characters.filter((c) =>
     event.characters.includes(c.id)
   );
+
+  const sourceDoc = getDocumentBySource(event.source);
 
   return (
     <div
@@ -113,9 +120,14 @@ export default function TimelineEventCard({
             )}
           </div>
 
-          {/* Title */}
-          <h3 className="font-serif text-lg md:text-xl font-bold text-[var(--text-primary)] leading-snug mb-2">
-            {title}
+          {/* Title — links to event detail page */}
+          <h3 className="font-serif text-lg md:text-xl font-bold leading-snug mb-2">
+            <Link
+              href={`/cronologia/${event.id}`}
+              className="text-[var(--text-primary)] hover:text-classified-red transition-colors no-underline"
+            >
+              {title}
+            </Link>
           </h3>
 
           {/* Description */}
@@ -147,11 +159,11 @@ export default function TimelineEventCard({
 
           {/* Bottom row: characters + location + stamp */}
           <div className="flex flex-wrap items-center gap-2 mt-3">
-            {/* Character chips */}
+            {/* Character chips — link to detail page */}
             {eventCharacters.map((char) => (
               <Link
                 key={char.id}
-                href={`/personajes#${char.id}`}
+                href={`/personajes/${char.id}`}
                 className="inline-flex items-center gap-1 px-2 py-0.5 text-xs
                   font-mono bg-ink-900/5 dark:bg-paper-50/10
                   text-[var(--text-secondary)] rounded-sm
@@ -202,9 +214,27 @@ export default function TimelineEventCard({
               );
             })()}
 
-            {/* Source stamp */}
-            <div className="ml-auto scale-75 origin-right">
-              <StampBadge type={getStampType(event.source)} size="sm" />
+            {/* Source document link + stamp */}
+            <div className="ml-auto flex items-center gap-2">
+              {sourceDoc?.url ? (
+                <a
+                  href={sourceDoc.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2 py-0.5 text-[0.6rem]
+                    font-mono text-classified-red hover:underline underline-offset-2
+                    transition-colors"
+                  title={sourceDoc.title[locale === "en" ? "en" : "es"]}
+                >
+                  <svg className="w-3 h-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                  PDF
+                </a>
+              ) : null}
+              <div className="scale-75 origin-right">
+                <StampBadge type={getStampType(event.source)} size="sm" />
+              </div>
             </div>
           </div>
         </article>

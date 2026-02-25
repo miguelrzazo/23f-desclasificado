@@ -33,6 +33,7 @@ export const characters: Character[] = [
     name: "Antonio Tejero Molina",
     rank: "Teniente Coronel de la Guardia Civil",
     category: "conspirador",
+    image: "/images/characters/tejero.jpg",
     role: {
       es: "Ejecutor principal. Lideró el asalto armado al Congreso de los Diputados",
       en: "Lead executor. Led the armed assault on the Congress of Deputies",
@@ -113,6 +114,7 @@ export const characters: Character[] = [
   {
     id: "milans",
     name: "Jaime Milans del Bosch y Ussía",
+    image: "/images/characters/milans.jpg",
     rank: "Teniente General. Capitán General de la 3ª Región Militar (Valencia)",
     category: "conspirador",
     role: {
@@ -173,6 +175,7 @@ export const characters: Character[] = [
   {
     id: "armada",
     name: "Alfonso Armada Comyn",
+    image: "/images/characters/armada.jpg",
     rank: "General del Ejército",
     category: "conspirador",
     role: {
@@ -247,6 +250,7 @@ export const characters: Character[] = [
   {
     id: "cortina",
     name: "José Cortina Prieto",
+    image: "/images/characters/cortina.jpg",
     rank: "Comandante de Infantería, Estado Mayor. Jefe de la AOME (CESID)",
     category: "conspirador",
     role: {
@@ -536,6 +540,7 @@ export const characters: Character[] = [
   {
     id: "blas-pinar",
     name: "Blas Piñar",
+    image: "/images/characters/blas-pinar.jpg",
     rank: "Líder político",
     category: "conspirador",
     role: {
@@ -574,6 +579,7 @@ export const characters: Character[] = [
   {
     id: "rey-juan-carlos",
     name: "Rey Juan Carlos I",
+    image: "/images/characters/rey-juan-carlos.jpg",
     rank: "Rey de España",
     category: "leal",
     role: {
@@ -620,6 +626,7 @@ export const characters: Character[] = [
   {
     id: "fernandez-campo",
     name: "Sabino Fernández Campo",
+    image: "/images/characters/fernandez-campo.jpg",
     rank: "Secretario General de la Casa Real",
     category: "leal",
     role: {
@@ -762,6 +769,7 @@ export const characters: Character[] = [
   {
     id: "suarez",
     name: "Adolfo Suárez",
+    image: "/images/characters/suarez.jpg",
     rank: "Presidente del Gobierno (saliente)",
     category: "politico",
     role: {
@@ -779,6 +787,7 @@ export const characters: Character[] = [
   {
     id: "calvo-sotelo",
     name: "Leopoldo Calvo-Sotelo",
+    image: "/images/characters/calvo-sotelo.jpg",
     rank: "Candidato a la Presidencia del Gobierno",
     category: "politico",
     role: {
@@ -796,6 +805,7 @@ export const characters: Character[] = [
   {
     id: "felipe-gonzalez",
     name: "Felipe González",
+    image: "/images/characters/felipe-gonzalez.jpg",
     rank: "Líder del PSOE",
     category: "politico",
     role: {
@@ -813,6 +823,7 @@ export const characters: Character[] = [
   {
     id: "carrillo",
     name: "Santiago Carrillo",
+    image: "/images/characters/carrillo.jpg",
     rank: "Líder del PCE",
     category: "politico",
     role: {
@@ -830,6 +841,7 @@ export const characters: Character[] = [
   {
     id: "gutierrez-mellado",
     name: "Gutiérrez Mellado",
+    image: "/images/characters/gutierrez-mellado.jpg",
     rank: "Vicepresidente del Gobierno",
     category: "politico",
     role: {
@@ -855,6 +867,7 @@ export const characters: Character[] = [
   {
     id: "lavilla",
     name: "Landelino Lavilla",
+    image: "/images/characters/lavilla.jpg",
     rank: "Presidente del Congreso",
     category: "politico",
     role: {
@@ -876,6 +889,7 @@ export const characters: Character[] = [
   {
     id: "reagan",
     name: "Ronald Reagan",
+    image: "/images/characters/reagan.jpg",
     rank: "Presidente de los Estados Unidos",
     category: "internacional",
     role: {
@@ -901,6 +915,7 @@ export const characters: Character[] = [
   {
     id: "haig",
     name: "Alexander Haig",
+    image: "/images/characters/haig.jpg",
     rank: "Secretario de Estado de EEUU",
     category: "internacional",
     role: {
@@ -918,6 +933,7 @@ export const characters: Character[] = [
   {
     id: "elizabeth-ii",
     name: "Reina Isabel II",
+    image: "/images/characters/elizabeth-ii.jpg",
     rank: "Reina del Reino Unido",
     category: "internacional",
     role: {
@@ -943,6 +959,7 @@ export const characters: Character[] = [
   {
     id: "genscher",
     name: "Hans-Dietrich Genscher",
+    image: "/images/characters/genscher.jpg",
     rank: "Ministro de Asuntos Exteriores de Alemania Federal",
     category: "internacional",
     role: {
@@ -960,6 +977,7 @@ export const characters: Character[] = [
   {
     id: "castro",
     name: "Fidel Castro",
+    image: "/images/characters/castro.jpg",
     rank: "Presidente de Cuba",
     category: "internacional",
     role: {

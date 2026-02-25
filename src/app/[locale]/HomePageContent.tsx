@@ -39,6 +39,7 @@ const FEATURED_CHARACTERS: Array<{
   category: "conspirador" | "leal" | "politico" | "internacional";
   roleEs: string;
   roleEn: string;
+  image?: string;
 }> = [
   {
     id: "tejero",
@@ -46,6 +47,7 @@ const FEATURED_CHARACTERS: Array<{
     category: "conspirador",
     roleEs: "Ejecutor del asalto",
     roleEn: "Assault executor",
+    image: "/images/characters/tejero.jpg",
   },
   {
     id: "milans",
@@ -53,6 +55,7 @@ const FEATURED_CHARACTERS: Array<{
     category: "conspirador",
     roleEs: "Tanques en Valencia",
     roleEn: "Tanks in Valencia",
+    image: "/images/characters/milans.jpg",
   },
   {
     id: "armada",
@@ -60,6 +63,7 @@ const FEATURED_CHARACTERS: Array<{
     category: "conspirador",
     roleEs: "El cerebro político",
     roleEn: "The political brain",
+    image: "/images/characters/armada.jpg",
   },
   {
     id: "rey-juan-carlos",
@@ -67,6 +71,7 @@ const FEATURED_CHARACTERS: Array<{
     category: "leal",
     roleEs: "Defensor de la Constitución",
     roleEn: "Defender of the Constitution",
+    image: "/images/characters/rey-juan-carlos.jpg",
   },
   {
     id: "fernandez-campo",
@@ -74,6 +79,7 @@ const FEATURED_CHARACTERS: Array<{
     category: "leal",
     roleEs: "Coordinador de la respuesta",
     roleEn: "Response coordinator",
+    image: "/images/characters/fernandez-campo.jpg",
   },
 ];
 
@@ -104,9 +110,20 @@ function HeroSection() {
   const t = useTranslations("home");
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
-      {/* Background overlay */}
-      <div className="absolute inset-0 paper-texture-aged" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-transparent dark:from-black/80 dark:via-black/50 dark:to-black/20" />
+      {/* Background video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover grayscale sepia-[0.3] opacity-40 dark:opacity-25 pointer-events-none"
+        aria-hidden="true"
+      >
+        <source src="/video/hero-23f.mp4" type="video/mp4" />
+      </video>
+      {/* Gradient overlays */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/70 dark:from-black/85 dark:via-black/60 dark:to-black/85" />
+      <div className="absolute inset-0 mix-blend-multiply bg-[var(--bg-primary)] opacity-30 dark:opacity-50" />
 
       <div className="relative z-10 flex flex-col items-center gap-6 px-4 text-center">
         {/* Title */}
@@ -414,7 +431,7 @@ function CharactersSection() {
               href={`/personajes/${ch.id}`}
               className="group flex flex-col items-center gap-2 transition-transform hover:-translate-y-1"
             >
-              <CensoredPhoto name={ch.name} category={ch.category} size="md" />
+              <CensoredPhoto name={ch.name} category={ch.category} image={ch.image} size="md" />
               <span className="font-body text-xs text-[var(--text-secondary)] text-center max-w-[120px] leading-snug group-hover:text-classified-red dark:group-hover:text-classified-brightred transition-colors">
                 {locale === "es" ? ch.roleEs : ch.roleEn}
               </span>

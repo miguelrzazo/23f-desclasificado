@@ -62,6 +62,7 @@ export default function CharacterCard({
           <CensoredPhoto
             name={character.name}
             category={character.category}
+            image={character.image}
             size="sm"
           />
           <div className="text-center">

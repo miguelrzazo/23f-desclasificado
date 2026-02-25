@@ -9,6 +9,7 @@ import InteractiveMap from "@/components/map/InteractiveMap";
 import { Link } from "@/i18n/routing";
 import type { Location } from "@/content/data/locations";
 import { timelineEvents } from "@/content/data/timeline";
+import { getCharactersForLocation } from "@/content/data/helpers";
 
 export default function MapPageContent() {
   const locale = useLocale();
@@ -21,6 +22,11 @@ export default function MapPageContent() {
     ? timelineEvents.filter((e) =>
         selectedLocation.events.includes(e.id)
       )
+    : [];
+
+  // Get characters present at this location
+  const locationCharacters = selectedLocation
+    ? getCharactersForLocation(selectedLocation.id)
     : [];
 
   return (
@@ -83,7 +89,7 @@ export default function MapPageContent() {
                       </p>
                     </div>
 
-                    {/* Related events */}
+                    {/* Related events — link to event detail pages */}
                     {relatedEvents.length > 0 && (
                       <div>
                         <h3 className="font-mono text-xs font-bold text-classified-red uppercase tracking-wider mb-3">
@@ -96,7 +102,7 @@ export default function MapPageContent() {
                               className="border-b border-paper-200 dark:border-dark-600 pb-2 last:border-0"
                             >
                               <Link
-                                href={`/cronologia#${event.id}`}
+                                href={`/cronologia/${event.id}`}
                                 className="group flex items-start gap-1.5 text-xs font-mono
                                   text-ink-700 dark:text-paper-300
                                   hover:text-classified-red dark:hover:text-classified-red
@@ -119,6 +125,31 @@ export default function MapPageContent() {
                             </li>
                           )}
                         </ul>
+                      </div>
+                    )}
+
+                    {/* Characters present at this location */}
+                    {locationCharacters.length > 0 && (
+                      <div>
+                        <h3 className="font-mono text-xs font-bold text-classified-red uppercase tracking-wider mb-3">
+                          {locale === "en" ? "Key figures" : "Personajes"} ({locationCharacters.length})
+                        </h3>
+                        <div className="flex flex-wrap gap-1.5">
+                          {locationCharacters.map((char) => (
+                            <Link
+                              key={char.id}
+                              href={`/personajes/${char.id}`}
+                              className="inline-flex items-center gap-1 px-2 py-0.5 text-[0.65rem]
+                                font-mono bg-ink-900/5 dark:bg-paper-50/10
+                                text-ink-700 dark:text-paper-300 rounded-sm
+                                hover:bg-classified-red/10 hover:text-classified-red
+                                transition-colors"
+                            >
+                              <span aria-hidden="true" className="text-[8px]">&#9679;</span>
+                              {char.name.split(" ").slice(-1)[0]}
+                            </Link>
+                          ))}
+                        </div>
                       </div>
                     )}
 
