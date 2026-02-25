@@ -6,12 +6,14 @@ import { Navigation } from './Navigation';
 import { LanguageToggle } from './LanguageToggle';
 import { ThemeToggle } from './ThemeToggle';
 import { useState, useEffect } from 'react';
+import { useScrollProgress } from '@/hooks/useScrollProgress';
 
 export function Header() {
   const t = useTranslations();
   const locale = useLocale();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const scrollProgress = useScrollProgress();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,6 +50,19 @@ export function Header() {
           border-b border-paper-300 dark:border-dark-600
           ${scrolled ? 'shadow-md' : ''}`}
       >
+        {/* Scroll progress bar */}
+        <div
+          className="h-[3px] bg-classified-red origin-left transition-opacity duration-300"
+          style={{
+            transform: `scaleX(${scrollProgress})`,
+            opacity: scrollProgress > 0 ? 1 : 0,
+          }}
+          role="progressbar"
+          aria-valuenow={Math.round(scrollProgress * 100)}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-label="Reading progress"
+        />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
