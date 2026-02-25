@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "title": "23-F DECLASSIFIED",
+    "description": "Declassified documents from the attempted coup d'état of February 23, 1981 in Spain"
+  },
+  "header": {
+    "title": "23-F",
+    "subtitle": "DECLASSIFIED",
+    "skipToContent": "Skip to content"
+  },
+  "nav": {
+    "home": "Home",
+    "chapters": "Chapters",
+    "timeline": "Timeline",
+    "characters": "Key Figures",
+    "map": "Map",
+    "documents": "Documents",
+    "about": "About",
+    "menu": "Menu",
+    "closeMenu": "Close menu"
+  },
+  "chapters": {
+    "ch1": {
+      "title": "The Context",
+      "description": "Spain between the Transition and the abyss: political crisis, terrorism, and the rattle of sabers"
+    },
+    "ch2": {
+      "title": "The Conspirators",
+      "description": "Tejero, Milans del Bosch, Armada and the network that wove the coup"
+    },
+    "ch3": {
+      "title": "18:23 — Assault on Congress",
+      "description": "The 200 seconds that paralyzed Spain: the storming of the chamber"
+    },
+    "ch4": {
+      "title": "The Night of the Transistors",
+      "description": "Tanks in Valencia, Spain glued to the radio, and the King's message"
+    },
+    "ch5": {
+      "title": "The Trial",
+      "description": "The court-martial, the sentences, and the unanswered questions"
+    },
+    "ch6": {
+      "title": "State Secrets",
+      "description": "Classified documents, CESID reports, and the shadows that persist"
+    },
+    "ch7": {
+      "title": "Legacy and Memory",
+      "description": "23-F in Spanish democracy: lessons, myths, and truth"
+    }
+  },
+  "footer": {
+    "brand": "23-F DECLASSIFIED",
+    "sources": "Sources: Council of Ministers, General Archive of the Administration, Congress of Deputies, Pablo Iglesias Foundation, national newspaper archives",
+    "project": "Documentary research and outreach project",
+    "legal": "Original documents are property of the Spanish State. This project is for educational and informational purposes only.",
+    "copyright": "© {year} 23-F Declassified. All rights reserved."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "readMore": "Read more",
+    "close": "Close",
+    "search": "Search",
+    "share": "Share",
+    "download": "Download",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
+    "openOriginal": "View original document",
+    "classified": "CLASSIFIED",
+    "declassified": "DECLASSIFIED",
+    "topSecret": "TOP SECRET",
+    "confidential": "CONFIDENTIAL"
+  },
+  "theme": {
+    "light": "Light mode",
+    "dark": "Dark mode",
+    "toggle": "Toggle theme"
+  },
+  "language": {
+    "es": "Español",
+    "en": "English",
+    "toggle": "Switch language",
+    "current": "EN"
+  },
+  "home": {
+    "hero": "23-F DECLASSIFIED",
+    "tagline": "The documents Spain kept secret",
+    "cta": "Explore the documents"
+  }
+}

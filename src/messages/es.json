@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "title": "23-F DESCLASIFICADO",
+    "description": "Documentos desclasificados del intento de golpe de Estado del 23 de febrero de 1981 en España"
+  },
+  "header": {
+    "title": "23-F",
+    "subtitle": "DESCLASIFICADO",
+    "skipToContent": "Saltar al contenido"
+  },
+  "nav": {
+    "home": "Inicio",
+    "chapters": "Capítulos",
+    "timeline": "Cronología",
+    "characters": "Personajes",
+    "map": "Mapa",
+    "documents": "Documentos",
+    "about": "Acerca",
+    "menu": "Menú",
+    "closeMenu": "Cerrar menú"
+  },
+  "chapters": {
+    "ch1": {
+      "title": "El Contexto",
+      "description": "España entre la Transición y el abismo: crisis política, terrorismo y ruido de sables"
+    },
+    "ch2": {
+      "title": "Los Conspiradores",
+      "description": "Tejero, Milans del Bosch, Armada y la red de contactos que tejió el golpe"
+    },
+    "ch3": {
+      "title": "18:23 — Asalto al Congreso",
+      "description": "Los 200 segundos que paralizaron España: la irrupción en el hemiciclo"
+    },
+    "ch4": {
+      "title": "La Noche de los Transistores",
+      "description": "Tanques en Valencia, España pegada a la radio y el mensaje del Rey"
+    },
+    "ch5": {
+      "title": "El Juicio",
+      "description": "El consejo de guerra, las condenas y las preguntas sin respuesta"
+    },
+    "ch6": {
+      "title": "Secretos de Estado",
+      "description": "Documentos clasificados, informes del CESID y las sombras que persisten"
+    },
+    "ch7": {
+      "title": "Legado y Memoria",
+      "description": "El 23-F en la democracia española: lecciones, mitos y verdad"
+    }
+  },
+  "footer": {
+    "brand": "23-F DESCLASIFICADO",
+    "sources": "Fuentes: Consejo de Ministros, Archivo General de la Administración, Congreso de los Diputados, Fundación Pablo Iglesias, hemerotecas nacionales",
+    "project": "Proyecto de investigación y divulgación documental",
+    "legal": "Los documentos originales son propiedad del Estado español. Este proyecto tiene fines exclusivamente educativos e informativos.",
+    "copyright": "© {year} 23-F Desclasificado. Todos los derechos reservados."
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Ha ocurrido un error",
+    "back": "Volver",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "readMore": "Leer más",
+    "close": "Cerrar",
+    "search": "Buscar",
+    "share": "Compartir",
+    "download": "Descargar",
+    "zoomIn": "Ampliar",
+    "zoomOut": "Reducir",
+    "openOriginal": "Ver documento original",
+    "classified": "CLASIFICADO",
+    "declassified": "DESCLASIFICADO",
+    "topSecret": "ALTO SECRETO",
+    "confidential": "CONFIDENCIAL"
+  },
+  "theme": {
+    "light": "Modo claro",
+    "dark": "Modo oscuro",
+    "toggle": "Cambiar tema"
+  },
+  "language": {
+    "es": "Español",
+    "en": "English",
+    "toggle": "Cambiar idioma",
+    "current": "ES"
+  },
+  "home": {
+    "hero": "23-F DESCLASIFICADO",
+    "tagline": "Los documentos que España mantuvo en secreto",
+    "cta": "Explorar los documentos"
+  }
+}
