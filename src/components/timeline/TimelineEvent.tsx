@@ -8,6 +8,7 @@ import StampBadge from "@/components/ui/StampBadge";
 import TypewriterText from "@/components/ui/TypewriterText";
 import type { TimelineEvent as TEvent } from "@/content/data/timeline";
 import type { Character } from "@/content/data/characters";
+import { locations } from "@/content/data/locations";
 
 interface TimelineEventProps {
   event: TEvent;
@@ -166,21 +167,40 @@ export default function TimelineEventCard({
             ))}
 
             {/* Location badge */}
-            {event.location && (
-              <Link
-                href={`/mapa#${event.location}`}
-                className="inline-flex items-center gap-1 px-2 py-0.5 text-xs
-                  font-mono bg-ink-900/5 dark:bg-paper-50/10
-                  text-[var(--text-secondary)] rounded-sm
-                  hover:bg-classified-red/10 hover:text-classified-red
-                  transition-colors"
-              >
-                <span aria-hidden="true" className="text-[10px]">
-                  &#9650;
-                </span>
-                {t("location")}
-              </Link>
-            )}
+            {event.location && (() => {
+              const loc = locations.find((l) => l.id === event.location);
+              const locName = loc
+                ? (locale === "en" ? loc.name.en : loc.name.es)
+                : event.location;
+              return (
+                <Link
+                  href={`/mapa#${event.location}`}
+                  className="inline-flex items-center gap-1 px-2 py-0.5 text-xs
+                    font-mono bg-ink-900/5 dark:bg-paper-50/10
+                    text-[var(--text-secondary)] rounded-sm
+                    hover:bg-classified-red/10 hover:text-classified-red
+                    transition-colors"
+                  title={locName}
+                >
+                  <svg
+                    width="10"
+                    height="10"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="flex-shrink-0"
+                    aria-hidden="true"
+                  >
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  <span className="truncate max-w-[120px]">{locName}</span>
+                </Link>
+              );
+            })()}
 
             {/* Source stamp */}
             <div className="ml-auto scale-75 origin-right">

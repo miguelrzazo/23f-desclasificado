@@ -6,6 +6,17 @@ import { useState } from 'react';
 
 const chapters = ['ch1', 'ch2', 'ch3', 'ch4', 'ch5', 'ch6', 'ch7'] as const;
 
+/** Map navigation keys to actual chapter page slugs */
+const CHAPTER_SLUGS: Record<string, string> = {
+  ch1: 'antecedentes',
+  ch2: 'la-noche',
+  ch3: 'cesid',
+  ch4: 'juicio',
+  ch5: 'sombras',
+  ch6: 'internacional',
+  ch7: 'prisioneros',
+};
+
 interface NavigationProps {
   isMobile?: boolean;
   onItemClick?: () => void;
@@ -73,7 +84,7 @@ export function Navigation({ isMobile = false, onItemClick }: NavigationProps) {
                     {chapters.map((ch, i) => (
                       <a
                         key={ch}
-                        href={`/${locale}/capitulo/${ch.replace('ch', 'capitulo-')}`}
+                        href={`/${locale}/capitulo/${CHAPTER_SLUGS[ch]}`}
                         onClick={onItemClick}
                         className="block px-4 py-2 text-sm
                           text-ink-500 dark:text-paper-300
@@ -156,7 +167,7 @@ export function Navigation({ isMobile = false, onItemClick }: NavigationProps) {
                   {chapters.map((ch, i) => (
                     <a
                       key={ch}
-                      href={`/${locale}/capitulo/${ch.replace('ch', 'capitulo-')}`}
+                      href={`/${locale}/capitulo/${CHAPTER_SLUGS[ch]}`}
                       className="block px-4 py-2.5 group/item
                         hover:bg-paper-100 dark:hover:bg-dark-700
                         transition-colors duration-150"

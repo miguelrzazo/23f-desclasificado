@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 23-F Desclasificado
 
-## Getting Started
+**[23f-desclasificado.vercel.app](https://23f-desclasificado.vercel.app)**
 
-First, run the development server:
+A las 18:23 del 23 de febrero de 1981, el teniente coronel Antonio Tejero irrumpió en el Congreso de los Diputados con casi doscientos guardias civiles. Durante 18 horas, España contuvo la respiración. Cuarenta y cinco años después, el Consejo de Ministros desclasificó 154 documentos que habían permanecido bajo sello de "SECRETO" y "RESERVADO" en los archivos del CNI, el Ministerio de Defensa, Interior y Exteriores.
+
+Este proyecto convierte esos 154 documentos en una experiencia digital interactiva: siete capítulos narrativos, treinta personajes con sus conexiones, ochenta eventos en una cronología navegable, y un mapa con veintiséis ubicaciones clave. Todo bilingue (ES/EN), todo construido sobre los textos OCR de los originales.
+
+---
+
+## Que contiene
+
+- **154 documentos** indexados con metadatos completos (titulo, resumen, clasificacion, fecha, capitulos relacionados, enlace al PDF original en lamoncloa.gob.es)
+- **7 capitulos** narrativos: Antecedentes, El Asalto, La Noche, El CESID, La Conspiracion, El Juicio, Consecuencias
+- **30 personajes** con biografias, citas de documentos originales, y un grafo SVG de conexiones
+- **80 eventos** en una cronologia filtrable por persona y con enlaces cruzados a ubicaciones
+- **26 ubicaciones** en un mapa interactivo Leaflet con eventos asociados
+- **Modo claro/oscuro** con estetica de dossier desclasificado: sellos "DESCLASIFICADO", fotos censuradas, tipografia Instrument Serif
+
+## Stack
+
+| | |
+|---|---|
+| Framework | Next.js 16 (App Router, static export) |
+| Lenguaje | TypeScript |
+| Estilos | Tailwind CSS v3 |
+| Animaciones | Framer Motion |
+| Mapa | Leaflet + react-leaflet |
+| i18n | next-intl (ES/EN) |
+| Deploy | Vercel |
+
+## Desarrollo local
 
 ```bash
+git clone https://github.com/miguelrzazo/23f-desclasificado.git
+cd 23f-desclasificado
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estructura del proyecto
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+  app/              # Paginas (App Router con [locale])
+  components/       # Componentes React (timeline, map, characters, chapters, ui)
+  content/data/     # Datos: documents.ts (154), characters.ts (30), timeline.ts (80),
+                    #        locations.ts (26), connections.ts (31), chapters.ts (7)
+  messages/         # Traducciones ES/EN
+  styles/           # Tailwind globals + tokens de diseno
+public/             # Assets estaticos, OG image
+```
 
-## Learn More
+## Corpus documental
 
-To learn more about Next.js, take a look at the following resources:
+Los 154 documentos provienen de cinco ministerios:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Origen | Documentos | Clasificacion predominante |
+|---|---|---|
+| Defensa — CNI (CESID) | 84 | Reservado / Secreto |
+| Defensa — Causas y Carpetas | 24 | Secreto |
+| Interior — Archivo General | 7 | Sin clasificar |
+| Interior — Guardia Civil | 10 | Reservado |
+| Interior — Policia | 10 | Reservado |
+| Exteriores (AGMAE) | 19 | Sin clasificar |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Los PDFs originales estan alojados en [lamoncloa.gob.es](https://www.lamoncloa.gob.es) y cada entrada en la web enlaza directamente al documento fuente.
 
-## Deploy on Vercel
+## Licencia
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+El codigo fuente de este proyecto es open source. Los documentos desclasificados son de dominio publico, publicados por el Gobierno de Espana.

@@ -219,7 +219,8 @@
     "searchPlaceholder": "Buscar por título o contenido...",
     "clearFilters": "Limpiar filtros",
     "showingCount": "Mostrando {count} de {total} documentos",
-    "noResults": "No se encontraron documentos con los filtros seleccionados."
+    "noResults": "No se encontraron documentos con los filtros seleccionados.",
+    "viewOriginal": "Ver documento original (PDF)"
   },
   "about": {
     "title": "Acerca de este proyecto",

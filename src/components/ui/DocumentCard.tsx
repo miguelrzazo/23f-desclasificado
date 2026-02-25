@@ -10,6 +10,8 @@ interface DocumentCardProps {
   date?: string;
   summary?: string;
   href?: string;
+  documentUrl?: string;
+  viewOriginalLabel?: string;
 }
 
 function CardContent({
@@ -18,6 +20,8 @@ function CardContent({
   classification,
   date,
   summary,
+  documentUrl,
+  viewOriginalLabel,
 }: Omit<DocumentCardProps, "href">) {
   return (
     <>
@@ -56,6 +60,37 @@ function CardContent({
         <p className="mt-3 text-sm text-[var(--text-secondary)] leading-relaxed line-clamp-3 font-body">
           {summary}
         </p>
+      )}
+
+      {/* Original document link */}
+      {documentUrl && (
+        <a
+          href={documentUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => e.stopPropagation()}
+          className="inline-flex items-center gap-1.5 mt-3 px-2.5 py-1.5
+            font-mono text-[0.65rem] uppercase tracking-wider
+            text-classified-red border border-classified-red/30
+            rounded-sm bg-classified-red/5
+            hover:bg-classified-red/15 hover:border-classified-red/60
+            transition-colors no-underline"
+        >
+          <svg
+            className="w-3.5 h-3.5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+            />
+          </svg>
+          {viewOriginalLabel || "Ver documento original (PDF)"}
+        </a>
       )}
     </>
   );

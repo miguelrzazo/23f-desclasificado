@@ -219,7 +219,8 @@
     "searchPlaceholder": "Search by title or content...",
     "clearFilters": "Clear filters",
     "showingCount": "Showing {count} of {total} documents",
-    "noResults": "No documents found with the selected filters."
+    "noResults": "No documents found with the selected filters.",
+    "viewOriginal": "View original document (PDF)"
   },
   "about": {
     "title": "About this project",

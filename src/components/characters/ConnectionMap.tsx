@@ -190,12 +190,14 @@ export default function ConnectionMap({
           const pos = positions.get(char.id);
           if (!pos) return null;
 
+          const isKing = char.id === "rey-juan-carlos";
           const isHighlighted =
             !hoveredId ||
             hoveredId === char.id ||
             highlightedConnections.has(char.id);
           const isHovered = hoveredId === char.id;
-          const r = isHovered ? 22 : 18;
+          const baseR = isKing ? 26 : 18;
+          const r = isHovered ? baseR + 4 : baseR;
 
           return (
             <g
@@ -208,38 +210,65 @@ export default function ConnectionMap({
               }
             >
               <Link href={`/personajes/${char.id}`}>
+                {/* Golden ring for the King */}
+                {isKing && (
+                  <circle
+                    cx={pos.x}
+                    cy={pos.y}
+                    r={r + 4}
+                    fill="none"
+                    stroke="#d4a017"
+                    strokeWidth={3}
+                    strokeDasharray="none"
+                    className="transition-all duration-200"
+                    opacity={isHighlighted ? 0.9 : 0.4}
+                  />
+                )}
                 <circle
                   cx={pos.x}
                   cy={pos.y}
                   r={r}
                   fill={CATEGORY_COLORS[char.category]}
-                  fillOpacity={isHovered ? 0.9 : 0.7}
-                  stroke={isHovered ? "#fff" : "transparent"}
-                  strokeWidth={2}
+                  fillOpacity={isHovered ? 0.9 : isKing ? 0.85 : 0.7}
+                  stroke={isHovered ? "#fff" : isKing ? "#d4a017" : "transparent"}
+                  strokeWidth={isKing ? 2.5 : 2}
                   className="transition-all duration-200"
                 />
+                {/* Crown icon for the King */}
+                {isKing && (
+                  <text
+                    x={pos.x}
+                    y={pos.y - r - 6}
+                    textAnchor="middle"
+                    className="pointer-events-none select-none"
+                    style={{ fontSize: "14px" }}
+                  >
+                    {"👑"}
+                  </text>
+                )}
                 <text
                   x={pos.x}
                   y={pos.y}
                   textAnchor="middle"
                   dominantBaseline="central"
-                  className="text-[8px] font-mono fill-white pointer-events-none select-none"
+                  className={`font-mono fill-white pointer-events-none select-none ${isKing ? "text-[10px]" : "text-[8px]"}`}
                   style={{ fontWeight: 700 }}
                 >
-                  {getInitials(char.name)}
+                  {isKing ? "JCI" : getInitials(char.name)}
                 </text>
                 {/* Name label below node */}
                 <text
                   x={pos.x}
                   y={pos.y + r + 12}
                   textAnchor="middle"
-                  className="text-[7px] font-mono pointer-events-none select-none"
+                  className={`font-mono pointer-events-none select-none ${isKing ? "text-[9px]" : "text-[7px]"}`}
                   style={{
-                    fill: "var(--text-secondary)",
+                    fill: isKing ? "#d4a017" : "var(--text-secondary)",
                     opacity: isHighlighted ? 1 : 0.4,
+                    fontWeight: isKing ? 700 : 400,
                   }}
                 >
-                  {char.name.split(" ").slice(-1)[0]}
+                  {isKing ? "Juan Carlos I" : char.name.split(" ").slice(-1)[0]}
                 </text>
               </Link>
             </g>

@@ -72,11 +72,6 @@ export default function CharacterCard({
               {character.role[lang]}
             </p>
           </div>
-          <span
-            className={`inline-block px-2 py-0.5 rounded-full text-[0.6rem] font-mono uppercase tracking-wider ${badge.color}`}
-          >
-            {badge.label[lang]}
-          </span>
           <Link
             href={`/personajes/${character.id}`}
             className="absolute inset-0 z-10"

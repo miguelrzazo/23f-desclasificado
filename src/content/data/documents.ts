@@ -23,7 +23,11 @@ export interface Document {
   title: { es: string; en: string };
   summary: { es: string; en: string };
   chapters: string[]; // chapter slugs where referenced
+  url?: string; // link to the original PDF at lamoncloa.gob.es or boe.es
 }
+
+// Base domain for relative La Moncloa document URLs
+const MONCLOA_BASE = "https://www.lamoncloa.gob.es";
 
 export const documents: Document[] = [
   // ===========================================================================
@@ -44,6 +48,7 @@ export const documents: Document[] = [
       en: "Council of Ministers order declassifying all 23-F documents. Based on the 1968 Official Secrets Act. References prior agreements from 1986, 1996, 2010, and 2014",
     },
     chapters: ["desclasificacion"],
+    url: "https://www.boe.es/boe/dias/2026/02/25/pdfs/BOE-A-2026-4351.pdf",
   },
 
   // ===========================================================================
@@ -64,6 +69,7 @@ export const documents: Document[] = [
       en: "Hostility toward officers loyal to the King. Far-right press attacks (El Alcázar, Heraldo, Fuerza Nueva) against Sáenz de Santamaría and Alcalá Galiano. Officers ostracized and threatened",
     },
     chapters: ["sombras"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/interior/archivo/1_PN_Informe_Situacion_12-11-81_desp.pdf`,
   },
   {
     id: "indices-subversion",
@@ -80,6 +86,7 @@ export const documents: Document[] = [
       en: "Taxonomy of subversive phases in the Armed Forces: political groups, rumors, pamphlets → graffiti, authority defiance → intimidation, threats → tumultuous meetings, signed manifestos",
     },
     chapters: ["sombras"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/interior/archivo/2_Indices_de_subversion_en_las_FAS_DIC_1981.pdf`,
   },
   {
     id: "juicio-compilacion",
@@ -96,6 +103,7 @@ export const documents: Document[] = [
       en: "Compilation: procedural analysis, cassation notes, Time magazine article, prisoner visit records (1985)",
     },
     chapters: ["juicio", "prisioneros"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/interior/archivo/3_Juicio_del_23-F_desp.pdf`,
   },
   {
     id: "campana-contra-sm",
@@ -112,6 +120,7 @@ export const documents: Document[] = [
       en: "Analysis of campaign to implicate the King: alleged Baqueira meeting, forcing Suárez's resignation, authorizing Armada. Dual purpose: reduce criminal liability + undermine the Crown",
     },
     chapters: ["sombras"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/interior/archivo/4_campana_contra_SM.pdf`,
   },
   {
     id: "involucionismo",
@@ -128,6 +137,7 @@ export const documents: Document[] = [
       en: "Three military factions in Valladolid: \"The Inestrillos\" (violent action, La Hípica Club), \"The Almendros\" (intellectuals, pamphlets), Opus Dei current. All three shared a common goal",
     },
     chapters: ["sombras"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/interior/archivo/5_INVOLUCIONISMO_POLITICO_PROVOCADO_POSIBLE_GOLPE_MILITAR_desp.pdf`,
   },
   {
     id: "posible-golpe",
@@ -144,6 +154,7 @@ export const documents: Document[] = [
       en: "Investigation of new suspects. National Independent Party (marginal monarchist, rival dynastic branch). Family connections to military intelligence",
     },
     chapters: ["sombras"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/interior/archivo/6_POSIBLE_GOLPE_DE_ESTADO_desp.pdf`,
   },
   {
     id: "notas-1983",
@@ -160,6 +171,7 @@ export const documents: Document[] = [
       en: "Release of four Civil Guard captains from La Palma Castle (Lázaro Corthay, Pérez de la Lastra, Acera, Bobis). Celebratory banquet. Milans at Caranza. Connections with Inestrillas",
     },
     chapters: ["prisioneros", "sombras"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/interior/archivo/7_Notas_1983_desp.pdf`,
   },
 
   // ===========================================================================
@@ -180,6 +192,7 @@ export const documents: Document[] = [
       en: "Tejero inside Congress, agitated, cursing. García Carrés reports troop movements. References to \"Alfonso\" (Armada) trying to negotiate with Carrillo. External link during the coup",
     },
     chapters: ["noche"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/interior/guardia-civil/23F_1._Conversacion_telefonica_GARCIA_CARRES_y_Tcol._TEJERO.pdf`,
   },
   {
     id: "conv-garcia-carres-2",
@@ -196,6 +209,7 @@ export const documents: Document[] = [
       en: "Mentions Villaviciosa and Pavía regiments, Civil Guard manifesto for El Alcázar, journalist Juan Pla. Direct coordination between media and coup plotters",
     },
     chapters: ["noche"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/interior/guardia-civil/23F_2._Conversacion_telefonica_GARCIA_CARRES.pdf`,
   },
   {
     id: "conv-el-pardo",
@@ -212,6 +226,7 @@ export const documents: Document[] = [
       en: "Total confusion in barracks about who is in command. Soldiers identify cavalry at TVE as Villaviciosa. Ask about Captain Corcuero and Milans del Bosch. Recorded at 03:20",
     },
     chapters: ["noche"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/interior/guardia-civil/23F_3._Conversaciones_telefonicas_unidad_militar_El_Pardo.pdf`,
   },
   {
     id: "planificacion-golpe",
@@ -228,6 +243,7 @@ export const documents: Document[] = [
       en: "CORE DOCUMENT. 5 political scenarios, D-40 to D+1 operative plan, 5 commando groups (A-E), detainee list, 9 committed military regions. Unsigned, unclassified — clandestine",
     },
     chapters: ["antecedentes"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/interior/guardia-civil/23F_4._Documento_planificacion_del_golpe.pdf`,
   },
   {
     id: "manuscrito-planificacion",
@@ -244,6 +260,7 @@ export const documents: Document[] = [
       en: "Handwritten notes complementing the planning document. D-3 to D-1 timeline. 43 lines",
     },
     chapters: ["antecedentes"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/interior/guardia-civil/23F_5._Documento_manuscrito_planificacion_del_golpe.pdf`,
   },
   {
     id: "notas-informativas-gc",
@@ -260,6 +277,7 @@ export const documents: Document[] = [
       en: "Minute-by-minute log from 18:20. Operational detail: 7 buses, 22 trucks, BRIPAC, state of emergency in Valencia, captain generals",
     },
     chapters: ["noche"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/interior/guardia-civil/23F_7._Notas_Informativas_2_Seccion_EM_desarrollo_hechos.pdf`,
   },
   {
     id: "telex-agencias",
@@ -275,6 +293,7 @@ export const documents: Document[] = [
       en: "Empty file (OCR failure)",
     },
     chapters: [],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/interior/guardia-civil/23F_8._Telex_interiores_y_de_Agencias_recibidos_en_2_Seccion_EM.pdf`,
   },
   {
     id: "oficio-pais-vasco",
@@ -290,6 +309,7 @@ export const documents: Document[] = [
       en: "Heavily degraded OCR. Report on the situation in the Basque Country",
     },
     chapters: [],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/interior/guardia-civil/23F_9._Oficio_dimanante_Zona_del_Pais_Vasco_disposiciones_sobre_Tejero.pdf`,
   },
   {
     id: "nota-tejero-galaxia",
@@ -306,6 +326,7 @@ export const documents: Document[] = [
       en: "Tejero's interrogation by Gallego Ronquillo and Cassinello in Toledo. Denies everything. Interrogators knew of a coup planned for the 17th",
     },
     chapters: ["antecedentes"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/interior/guardia-civil/23F_10._Nota_comparecencia_Tejero_Galaxia.pdf`,
   },
   {
     id: "nota-prensa-arresto",
@@ -322,6 +343,7 @@ export const documents: Document[] = [
       en: "2,469 lines. Complete dossier on repercussions of Tejero's arrest in Málaga. \"Deep unease\" in Commands across Spain. Fuerza Nueva expresses support",
     },
     chapters: ["antecedentes"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/interior/guardia-civil/23F_11._Nota_Informativa_repercusion_prensa_arresto_Tejero_antes_1981.pdf`,
   },
 
   // ===========================================================================
@@ -342,6 +364,7 @@ export const documents: Document[] = [
       en: "CC.OO./UGT strikes, PCE propaganda, scattered demonstrations. General normality in most regions",
     },
     chapters: ["sombras"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/interior/policia/SITUACION_REGIONES_POLICIALES_24-02-81.pdf`,
   },
   {
     id: "sit-reg-25-02",
@@ -358,6 +381,7 @@ export const documents: Document[] = [
       en: "False bomb threat at Congress. 50 youths shout \"Free Tejero\" outside Civil Guard barracks. Communist Movement calls rallies",
     },
     chapters: ["sombras"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/interior/policia/SITUACION_REGIONES_POLICIALES_25-02-81.pdf`,
   },
   {
     id: "sit-reg-26-02",
@@ -374,6 +398,7 @@ export const documents: Document[] = [
       en: "Far-right graffiti demanding Tejero's freedom. Intense left-wing counter-mobilization. Revolutionary Communist League propaganda",
     },
     chapters: ["sombras"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/interior/policia/SITUACION_REGIONES_POLICIALES_26-02-81.pdf`,
   },
   {
     id: "op-ariete",
@@ -390,6 +415,7 @@ export const documents: Document[] = [
       en: "Police report on CESID Operation Ariete, designed during Carrero Blanco era. Two phases: power vacuum + mass disturbances. 80-110 estimated deaths. Barcelona stopped",
     },
     chapters: ["antecedentes", "cesid"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/interior/policia/18-03-81_NOTA_INFORMATIVA_SOBRE_LA_OPERACION_ARIETE.pdf`,
   },
   {
     id: "ayuda-implicados",
@@ -406,6 +432,7 @@ export const documents: Document[] = [
       en: "High command organizes financial support for families. \"Firm conviction\" of not tolerating persecution",
     },
     chapters: ["sombras"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/interior/policia/18-03-81_NOTA_INFORMATIVA_SOBRE_LA_AYUDA_A_LOS_IMPLICADOS_23F.pdf`,
   },
   {
     id: "fuerza-nueva",
@@ -422,6 +449,7 @@ export const documents: Document[] = [
       en: "Blas Piñar: \"the shadow of the coup has not gone away.\" Lawsuit against Sábado Gráfico. Fuerza Nueva events in the Balearics",
     },
     chapters: ["sombras"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/interior/policia/12-03-81_NOTA_INFORMATIVA_SOBRE_FUERZA_NUEVA.pdf`,
   },
   {
     id: "pce-advertencia",
@@ -438,6 +466,7 @@ export const documents: Document[] = [
       en: "PCE warns: far right dominates the \"black market of rumor.\" \"Checkmate against the Monarchy.\" The shadow of the coup has not gone away",
     },
     chapters: ["sombras"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/interior/policia/11-05-81_NOTA_INFORMATIVA_SOBRE_EL_PCE.pdf`,
   },
   {
     id: "apoyo-economico-1983",
@@ -454,6 +483,7 @@ export const documents: Document[] = [
       en: "Group of businessmen and sympathizers form monthly fund for families of those who lost military status",
     },
     chapters: ["sombras", "prisioneros"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/interior/policia/10-05-83_NOTA_INFORMATIVA_SOBRE_APOYO_ECONOMICO_A_LOS_IMPLICADOS.pdf`,
   },
   {
     id: "bloqueo-cuenta",
@@ -470,6 +500,7 @@ export const documents: Document[] = [
       en: "Banco Central account of Military and Police Wives Association frozen by ministerial order",
     },
     chapters: ["sombras"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/interior/policia/27-03-81_NOTA_INFORMATIVA_SOBRE_BLOQUEO_DE_CUENTA_DE_ASOC_DE_MUJERES_DE_MILITARES.pdf`,
   },
 
   // ===========================================================================
@@ -491,6 +522,7 @@ export const documents: Document[] = [
       en: "Personal and classified letter transmitting King's report and suspicious business cards with \"TEJERO\" acrostic. Sent \"at H.M. the King's indication\"",
     },
     chapters: ["cesid"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_1_R.pdf`,
   },
   {
     id: "doc-2-r",
@@ -507,6 +539,7 @@ export const documents: Document[] = [
       en: "CESID recommendations to General Staff on military control and DAC monitoring",
     },
     chapters: ["noche", "cesid"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_2_R.pdf`,
   },
   {
     id: "doc-3-r",
@@ -523,6 +556,7 @@ export const documents: Document[] = [
       en: "Recommendations: assume military control, psychological operations inside Congress, isolate Congress area, share intelligence",
     },
     chapters: ["noche", "cesid"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_3_R.pdf`,
   },
   {
     id: "doc-4-r",
@@ -539,6 +573,7 @@ export const documents: Document[] = [
       en: "DDI (CESID) operational chronology for the night of the coup: from 17:00 to midnight. Includes call to Valencia",
     },
     chapters: ["noche", "cesid"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_4_R.pdf`,
   },
   {
     id: "doc-5-r",
@@ -554,6 +589,7 @@ export const documents: Document[] = [
       en: "Official account: CESID acted without chain of command, established operations center, sent agents to Congress to negotiate",
     },
     chapters: ["noche", "cesid"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_5_R.pdf`,
   },
   {
     id: "doc-6-r",
@@ -569,6 +605,7 @@ export const documents: Document[] = [
       en: "6 AOME members with active participation identified. \"Operation Míster\" activated to cover up: falsification of movement dates on 23-F",
     },
     chapters: ["cesid"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_6_R.pdf`,
   },
   {
     id: "doc-7-r",
@@ -584,6 +621,7 @@ export const documents: Document[] = [
       en: "1,736 lines. Longest document in the corpus. Investigation order, code names, statements, contradictions, evidence of prior coordination with Tejero",
     },
     chapters: ["cesid"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_7_R.pdf`,
   },
   {
     id: "doc-8-r",
@@ -599,6 +637,7 @@ export const documents: Document[] = [
       en: "Document about Cortina. Heavily degraded OCR",
     },
     chapters: ["cesid"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_8_R.pdf`,
   },
   {
     id: "doc-9-r",
@@ -615,6 +654,7 @@ export const documents: Document[] = [
       en: "Military commissions from various regions show sympathy: applause, booing of journalists, fraternization with defendants",
     },
     chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_9_R.pdf`,
   },
   {
     id: "doc-10-r",
@@ -631,6 +671,7 @@ export const documents: Document[] = [
       en: "Record of applause for defendants and booing of journalists by military commissions during trial",
     },
     chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_10_R.pdf`,
   },
   {
     id: "doc-11-r",
@@ -647,6 +688,7 @@ export const documents: Document[] = [
       en: "Letter reporting the tense atmosphere in the Army at the start of Case 2/81 trial",
     },
     chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_11_R.pdf`,
   },
   {
     id: "doc-12-r",
@@ -663,6 +705,7 @@ export const documents: Document[] = [
       en: "CESID analysis of the implications of defendants' provisional release decisions",
     },
     chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_12_R.pdf`,
   },
   {
     id: "doc-15-r",
@@ -679,6 +722,7 @@ export const documents: Document[] = [
       en: "Cabeza Calahorra insults the press during his defense of Milans. Pilar Urbano (ABC) attempts to organize journalist walkout. General Toquero intervenes",
     },
     chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_15_R.pdf`,
   },
   {
     id: "doc-20-r",
@@ -694,6 +738,7 @@ export const documents: Document[] = [
       en: '"Brief account of events of February 23-24, 1981 as known at Zarzuela Palace." Official Royal Household account. Includes trial notes (March 1982)',
     },
     chapters: ["noche", "juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_20_R.pdf`,
   },
   {
     id: "doc-25-r",
@@ -710,6 +755,7 @@ export const documents: Document[] = [
       en: "Defense of Lázaro Corthay, Bobis, and Cid Fortea. Prosecutor requests 5 years imprisonment",
     },
     chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_25_R.pdf`,
   },
   {
     id: "doc-30-r",
@@ -726,6 +772,7 @@ export const documents: Document[] = [
       en: "CESID weekly assessment: far-right activity, UME propaganda in barracks (\"WE WILL CALL YOU\"), risk at Victory parade in Zaragoza with the King present",
     },
     chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_30_R.pdf`,
   },
   {
     id: "doc-33-r",
@@ -742,6 +789,7 @@ export const documents: Document[] = [
       en: "Milans defense strategy: \"redirection\" of more radical coups. Art. 8 Constitution. H.M. mentioned over 96 times — coordinated campaign to implicate the Crown",
     },
     chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_33_R.pdf`,
   },
   {
     id: "doc-35-r",
@@ -758,6 +806,7 @@ export const documents: Document[] = [
       en: "Múgica Herzog testimony. End of the evidentiary phase of Case 2/81 trial",
     },
     chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_35_R.pdf`,
   },
   {
     id: "doc-40-r",
@@ -774,6 +823,7 @@ export const documents: Document[] = [
       en: "Aramburu and Sáenz de Santamaría testify. Sáenz de Santamaría uses \"hostages\" — defendants and families erupt — session suspended. Armada at Congress: \"I have failed\"",
     },
     chapters: ["juicio", "noche"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_40_R.pdf`,
   },
   {
     id: "doc-45-r",
@@ -790,6 +840,7 @@ export const documents: Document[] = [
       en: "CESID integrated assessment of the defense phase development at trial",
     },
     chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_45_R.pdf`,
   },
   {
     id: "doc-50-r",
@@ -806,6 +857,7 @@ export const documents: Document[] = [
       en: "Abad testifies Cortina met Tejero the day before the coup. Manchado, Tejero, and Gómez Iglesias were decisive",
     },
     chapters: ["juicio", "cesid"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_50_R.pdf`,
   },
   {
     id: "doc-55-r",
@@ -822,6 +874,7 @@ export const documents: Document[] = [
       en: "Full Tejero interrogation. Cortina set the date. \"National Operation Under the King's Orders.\" Rejected government with socialists. \"Deep contempt\" for military leadership",
     },
     chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_55_R.pdf`,
   },
   {
     id: "doc-60-r",
@@ -838,6 +891,7 @@ export const documents: Document[] = [
       en: "Milans: \"redirection\" of more radical coups, acted on King's orders through Armada, denied knowing Manchado. Armada: denied all conspiracy, went \"in a personal capacity\"",
     },
     chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_60_R.pdf`,
   },
   {
     id: "doc-65-r",
@@ -854,6 +908,7 @@ export const documents: Document[] = [
       en: "CESID weekly integrated assessment: low public interest in trial, far-right activity, psychological pressure on judges",
     },
     chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_65_R.pdf`,
   },
   {
     id: "doc-73-r",
@@ -870,6 +925,7 @@ export const documents: Document[] = [
       en: "José Antonio Assiego controlled 40 professional gunmen, connected to Colonel Garchitorena (Madrid Military Government). Ready to act on the night of 23-F. Connections to Basque Country",
     },
     chapters: ["sombras"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_73_R.pdf`,
   },
   {
     id: "doc-75-r",
@@ -885,6 +941,7 @@ export const documents: Document[] = [
       en: "Formal communication of Cortina's prosecution for events of February 23-24. Discretion requested",
     },
     chapters: ["cesid", "juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_75_R.pdf`,
   },
   {
     id: "doc-77-r",
@@ -900,6 +957,7 @@ export const documents: Document[] = [
       en: "Captain Sánchez Valiente missing. Argentine passport obtained by brother in Rome. Crossed Latin America and Europe. Last report: Greece (possible disinformation). Wife in London",
     },
     chapters: ["prisioneros"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_77_R.pdf`,
   },
   {
     id: "doc-80-r",
@@ -915,9 +973,25 @@ export const documents: Document[] = [
       en: "Supreme Military Council asks CESID: what Cortina commanded, whether he produced intelligence reports, whether he had an interception system",
     },
     chapters: ["cesid"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_80_R.pdf`,
   },
-  // Remaining CNI documents (Doc_14_R through Doc_84_R — many with degraded OCR)
-  // Listed as a range since individual details are not available
+  {
+    id: "doc-13-r",
+    filename: "Doc_13_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-03-08",
+    title: {
+      es: "Nota de inteligencia: listas de oficiales, quema de bandera en Anoeta, encuestas CIS",
+      en: "Intelligence note: officer lists, flag burning at Anoeta, CIS polls",
+    },
+    summary: {
+      es: "Tres temas: listas de oficiales implicados en actividad política circulando en cuarteles, quema de bandera española en el frontón de Anoeta (San Sebastián), encuestas del CIS sobre opinión pública ante el juicio",
+      en: "Three topics: lists of officers involved in political activity circulating in barracks, burning of Spanish flag at Anoeta pelota court (San Sebastián), CIS polls on public opinion about the trial",
+    },
+    chapters: ["juicio", "sombras"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_13_R.pdf`,
+  },
   {
     id: "doc-14-r",
     filename: "Doc_14_R.txt",
@@ -932,6 +1006,908 @@ export const documents: Document[] = [
       en: "Additional notes from Case 2/81 trial. Partially degraded OCR",
     },
     chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_14_R.pdf`,
+  },
+  {
+    id: "doc-16-r",
+    filename: "Doc_16_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-06-06",
+    title: {
+      es: "Orden General Extraordinaria 2/82 de la JUJEM sobre la sentencia del 23-F",
+      en: "JUJEM Extraordinary General Order 2/82 on the 23-F sentence",
+    },
+    summary: {
+      es: "Orden General Extraordinaria 2/82 de la Junta de Jefes de Estado Mayor relativa a la sentencia del 23-F. Firmada por Álvaro Lacalle Leloup",
+      en: "Extraordinary General Order 2/82 of the Joint Chiefs of Staff regarding the 23-F sentence. Signed by Álvaro Lacalle Leloup",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_16_R.pdf`,
+  },
+  {
+    id: "doc-17-r",
+    filename: "Doc_17_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982",
+    title: {
+      es: "Análisis del papel de la JUJEM en la crisis político-militar tras la sentencia",
+      en: "Analysis of JUJEM's role in the political-military crisis after sentencing",
+    },
+    summary: {
+      es: "Análisis de las dos vías de la JUJEM tras la sentencia: poder institucional autónomo versus nexo con el poder político. Implicaciones para la transición militar",
+      en: "Analysis of JUJEM's two paths after sentencing: autonomous institutional power versus link to political power. Implications for the military transition",
+    },
+    chapters: ["juicio", "sombras"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_17_R.pdf`,
+  },
+  {
+    id: "doc-18-r",
+    filename: "Doc_18_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-06",
+    title: {
+      es: "Nota interior: reacciones a la sentencia del 23-F",
+      en: "Interior note: reactions to the 23-F sentence",
+    },
+    summary: {
+      es: "Reacciones a la sentencia: opinión militar dividida, reacciones de partidos políticos, posible crisis interna de UCD. Análisis del impacto político de las penas",
+      en: "Reactions to the sentence: divided military opinion, political party reactions, potential UCD internal crisis. Analysis of the political impact of the sentences",
+    },
+    chapters: ["juicio", "sombras"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_18_R.pdf`,
+  },
+  {
+    id: "doc-19-r",
+    filename: "Doc_19_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-06-07",
+    title: {
+      es: "Informe CAPGEN-3: opiniones de guarnición sobre las sentencias",
+      en: "CAPGEN-3 report: garrison opinions on the sentences",
+    },
+    summary: {
+      es: "Informe de la Sección de Contrainteligencia (CAPGEN-3) sobre opiniones de la guarnición acerca de las sentencias a Milans, Armada, Ibáñez y otros. Firmado por Rafael Allende Desalazar y Urbina",
+      en: "Counterintelligence Section (CAPGEN-3) report on garrison opinions about sentences for Milans, Armada, Ibáñez and others. Signed by Rafael Allende Desalazar y Urbina",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_19_R.pdf`,
+  },
+  {
+    id: "doc-21-r",
+    filename: "Doc_21_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-05-24",
+    title: {
+      es: "Informe de la última sesión de vista oral: últimas palabras de los acusados",
+      en: "Report on final oral hearing session: defendants' last statements",
+    },
+    summary: {
+      es: "Sesión final de la vista oral de la Causa 2/81 con las últimas palabras de todos los acusados. Incluye panfleto adjunto de 'Comisiones Militares' distribuido durante el juicio",
+      en: "Final session of Case 2/81 oral hearing with all defendants' last statements. Includes attached 'Military Commissions' pamphlet distributed during the trial",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_21_R.pdf`,
+  },
+  {
+    id: "doc-22-r",
+    filename: "Doc_22_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-05-18",
+    title: {
+      es: "Vista oral: defensa de Tenientes Vecinos y Boza (Guardia Civil)",
+      en: "Oral hearing: defense of Lieutenants Vecinos and Boza (Civil Guard)",
+    },
+    summary: {
+      es: "Sesión de vista oral con los argumentos de defensa de los Tenientes Vecinos y Boza de la Guardia Civil",
+      en: "Oral hearing session with defense arguments for Civil Guard Lieutenants Vecinos and Boza",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_22_R.pdf`,
+  },
+  {
+    id: "doc-23-r",
+    filename: "Doc_23_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-05-17",
+    title: {
+      es: "Vista oral: defensa de Ttes. Izquierdo, Álvarez Fernández y Ramos Rueda",
+      en: "Oral hearing: defense of Lts. Izquierdo, Álvarez Fernández and Ramos Rueda",
+    },
+    summary: {
+      es: "Sesión de vista oral con los argumentos de defensa de los Tenientes Izquierdo, Álvarez Fernández y Ramos Rueda",
+      en: "Oral hearing session with defense arguments for Lieutenants Izquierdo, Álvarez Fernández and Ramos Rueda",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_23_R.pdf`,
+  },
+  {
+    id: "doc-24-r",
+    filename: "Doc_24_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-05-12",
+    title: {
+      es: "Vista oral: defensa de Caps. Gómez Iglesias, Álvarez-Arenas, Ignacio Román, Pascual Gálvez",
+      en: "Oral hearing: defense of Capts. Gómez Iglesias, Álvarez-Arenas, Ignacio Román, Pascual Gálvez",
+    },
+    summary: {
+      es: "Sesión de vista oral con los argumentos de defensa de los Capitanes Gómez Iglesias, Álvarez-Arenas, Ignacio Román y Pascual Gálvez",
+      en: "Oral hearing session with defense arguments for Captains Gómez Iglesias, Álvarez-Arenas, Ignacio Román and Pascual Gálvez",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_24_R.pdf`,
+  },
+  {
+    id: "doc-26-r",
+    filename: "Doc_26_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-05-06",
+    title: {
+      es: "Vista oral: defensa de Cte. Cortina, Cap. Acera y otros; incidente Tejero-Cortina",
+      en: "Oral hearing: defense of Maj. Cortina, Capt. Acera and others; Tejero-Cortina incident",
+    },
+    summary: {
+      es: "Defensa de Cte. Cortina, Cap. Acera, Tte. Alonso, Cap. Batista, Cap. Pérez de la Lastra. Incidente notable entre Tejero y Cortina durante la sesión",
+      en: "Defense of Maj. Cortina, Capt. Acera, Lt. Alonso, Capt. Batista, Capt. Pérez de la Lastra. Notable incident between Tejero and Cortina during the session",
+    },
+    chapters: ["juicio", "cesid"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_26_R.pdf`,
+  },
+  {
+    id: "doc-27-r",
+    filename: "Doc_27_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-05-05",
+    title: {
+      es: "Vista oral: defensa de Tcol. Tejero, Tcol. Más Oliver, inicio defensa Cte. Cortina",
+      en: "Oral hearing: defense of Lt.Col. Tejero, Lt.Col. Más Oliver, start of Maj. Cortina defense",
+    },
+    summary: {
+      es: "Defensa de Tcol. Tejero (abogados López Montero y Gen. Orozco), Tcol. Más Oliver. Inicio de la defensa del Cte. Cortina",
+      en: "Defense of Lt.Col. Tejero (lawyers López Montero and Gen. Orozco), Lt.Col. Más Oliver. Start of Maj. Cortina's defense",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_27_R.pdf`,
+  },
+  {
+    id: "doc-28-r",
+    filename: "Doc_28_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-05-04",
+    title: {
+      es: "Vista oral: defensa de Coronel Manchado, inicio defensa Tcol. Tejero",
+      en: "Oral hearing: defense of Colonel Manchado, start of Lt.Col. Tejero defense",
+    },
+    summary: {
+      es: "Defensa de Coronel Manchado (Gen. Chamorro y Sr. López Silva). Inicio de la defensa de Tcol. Tejero",
+      en: "Defense of Colonel Manchado (Gen. Chamorro and Mr. López Silva). Start of Lt.Col. Tejero's defense",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_28_R.pdf`,
+  },
+  {
+    id: "doc-29-r",
+    filename: "Doc_29_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-05-03",
+    title: {
+      es: "Vista oral: defensa de Cap. Menéndez, Cte. Pardo, García Carrés, Coronel San Martín",
+      en: "Oral hearing: defense of Capt. Menéndez, Maj. Pardo, García Carrés, Colonel San Martín",
+    },
+    summary: {
+      es: "Defensa de Cap. Navío Menéndez, Cte. Pardo, García Carrés (abogado De Miguel) y Coronel San Martín (abogados Labernía y Gen. Farré)",
+      en: "Defense of Navy Capt. Menéndez, Maj. Pardo, García Carrés (lawyer De Miguel) and Colonel San Martín (lawyers Labernía and Gen. Farré)",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_29_R.pdf`,
+  },
+  {
+    id: "doc-31-r",
+    filename: "Doc_31_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-04-30",
+    title: {
+      es: "Vista oral: defensa de Gen. Armada (7 horas), Gen. Torres Rojas, inicio De Miguel",
+      en: "Oral hearing: Gen. Armada defense (7 hours), Gen. Torres Rojas, start of De Miguel",
+    },
+    summary: {
+      es: "Defensa de Gen. Armada por Sr. Hermosilla (7 horas de alegato). Gen. Torres Rojas (Sr. Quintana y Gen. Calzada, que renunció). Inicio de la defensa de De Miguel",
+      en: "Gen. Armada's defense by Mr. Hermosilla (7-hour plea). Gen. Torres Rojas (Mr. Quintana and Gen. Calzada, who withdrew). Start of De Miguel's defense",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_31_R.pdf`,
+  },
+  {
+    id: "doc-32-r",
+    filename: "Doc_32_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-04-29",
+    title: {
+      es: "Vista oral: defensa de Gen. Armada por Hermosilla; tensiones Milans-Armada",
+      en: "Oral hearing: Hermosilla's defense of Gen. Armada; Milans-Armada tensions",
+    },
+    summary: {
+      es: "Jornada completa de defensa de Gen. Armada por Sr. Hermosilla. Argumento de ausencia de pruebas de culpabilidad. Tensiones evidentes entre Milans y Armada durante la sesión",
+      en: "Full-day defense of Gen. Armada by Mr. Hermosilla. Argument of lack of proof of guilt. Evident tensions between Milans and Armada during the session",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_32_R.pdf`,
+  },
+  {
+    id: "doc-34-r",
+    filename: "Doc_34_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-04-27",
+    title: {
+      es: "Vista oral: conclusiones definitivas del Fiscal con penas solicitadas para los 33 acusados",
+      en: "Oral hearing: Prosecutor's definitive conclusions with requested sentences for all 33 defendants",
+    },
+    summary: {
+      es: "Conclusiones definitivas del Fiscal con las penas solicitadas para los 33 acusados del 23-F. Lista completa de procesados y penalidades requeridas",
+      en: "Prosecutor's definitive conclusions with requested sentences for all 33 defendants of 23-F. Complete list of defendants and required penalties",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_34_R.pdf`,
+  },
+  {
+    id: "doc-36-r",
+    filename: "Doc_36_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-04-19",
+    title: {
+      es: "Vista oral: testimonios de Cte. Bonell, Goróstegui, mandos GC, Nuñez Simón y otros",
+      en: "Oral hearing: testimonies of Maj. Bonell, Goróstegui, GC commanders, Nuñez Simón and others",
+    },
+    summary: {
+      es: "Declaraciones testificales de Cte. Bonell, Goróstegui, mandos de la Guardia Civil, Nuñez Simón, Cap. Tamarit, Piris y Sr. Plá García",
+      en: "Witness testimonies from Maj. Bonell, Goróstegui, Civil Guard commanders, Nuñez Simón, Capt. Tamarit, Piris and Mr. Plá García",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_36_R.pdf`,
+  },
+  {
+    id: "doc-37-r",
+    filename: "Doc_37_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-04-16",
+    title: {
+      es: "Vista oral: testimonios de Col. Sancho, TCOLs Muller, García-Vaquero, documento del 'capó'",
+      en: "Oral hearing: testimonies of Col. Sancho, Lt.Cols. Muller, García-Vaquero, 'hood document'",
+    },
+    summary: {
+      es: "Declaraciones de Col. Sancho, TCOLs Muller, García-Vaquero, Porras, Bonelli, Fuentes de Salazar (sobre el 'documento del capó'), Pardo de Santallana, Sanz Esteban, Gibert y Corral",
+      en: "Testimonies of Col. Sancho, Lt.Cols. Muller, García-Vaquero, Porras, Bonelli, Fuentes de Salazar (on the 'hood document'), Pardo de Santallana, Sanz Esteban, Gibert and Corral",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_37_R.pdf`,
+  },
+  {
+    id: "doc-38-r",
+    filename: "Doc_38_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-04-14",
+    title: {
+      es: "Vista oral: testimonios de Gen. Alcalá Galiano, Coroneles Cervantes, Astilleros y otros",
+      en: "Oral hearing: testimonies of Gen. Alcalá Galiano, Colonels Cervantes, Astilleros and others",
+    },
+    summary: {
+      es: "Declaraciones de Gen. Alcalá Galiano, Coroneles Cervantes, Astilleros, Gómez, Villanueva, Vázquez, Rovira; TCOLs Sierra, Cañas y Arana",
+      en: "Testimonies of Gen. Alcalá Galiano, Colonels Cervantes, Astilleros, Gómez, Villanueva, Vázquez, Rovira; Lt.Cols. Sierra, Cañas and Arana",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_38_R.pdf`,
+  },
+  {
+    id: "doc-39-r",
+    filename: "Doc_39_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-04-13",
+    title: {
+      es: "Vista oral: testimonios de Generales Rodríguez Ventosa, Ortiz Call, Centeno, Prieto López, Alcalá Galiano; operaciones DAC",
+      en: "Oral hearing: testimonies of Generals Rodríguez Ventosa, Ortiz Call, Centeno, Prieto López, Alcalá Galiano; DAC operations",
+    },
+    summary: {
+      es: "Declaraciones de Generales Rodríguez Ventosa, Ortiz Call, Centeno, Prieto López y Alcalá Galiano. Detalles operativos de la División Acorazada (DAC)",
+      en: "Testimonies of Generals Rodríguez Ventosa, Ortiz Call, Centeno, Prieto López and Alcalá Galiano. Operational details of the Armored Division (DAC)",
+    },
+    chapters: ["juicio", "noche"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_39_R.pdf`,
+  },
+  {
+    id: "doc-41-r",
+    filename: "Doc_41_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-04-07",
+    title: {
+      es: "Nota informativa sobre la sesión del 7 de abril de 1982 del juicio 2/81",
+      en: "Intelligence report on the 7 April 1982 session of trial 2/81",
+    },
+    summary: {
+      es: "Declaraciones testificales de los generales Esquivias, Pérez Iñigo, Bonal, Yusti, Arnaiz, Valencia y Pontijas sobre la actuación del general Armada y los eventos en el Cuartel General del Ejército la noche del 23-F.",
+      en: "Witness testimonies from generals Esquivias, Pérez Iñigo, Bonal, Yusti, Arnaiz, Valencia, and Pontijas regarding General Armada's conduct and events at Army Headquarters on the night of 23-F.",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_41_R.pdf`,
+  },
+  {
+    id: "doc-42-r",
+    filename: "Doc_42_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-04-06",
+    title: {
+      es: "Nota informativa sobre la sesión del 6 de abril de 1982 del juicio 2/81",
+      en: "Intelligence report on the 6 April 1982 session of trial 2/81",
+    },
+    summary: {
+      es: "Declaraciones del teniente general Sáez de Santamaría, el general Juste y el general Castro San Martín. Juste describe sus reservas mentales sobre la operación y Castro San Martín detalla la actuación de Armada en el Cuartel General del Ejército.",
+      en: "Testimonies of Lieutenant General Sáez de Santamaría, General Juste, and General Castro San Martín. Juste describes his mental reservations about the operation and Castro San Martín details Armada's conduct at Army Headquarters.",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_42_R.pdf`,
+  },
+  {
+    id: "doc-43-r",
+    filename: "Doc_43_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-04-02",
+    title: {
+      es: "Nota informativa sobre la sesión del 2 de abril de 1982 del juicio 2/81",
+      en: "Intelligence report on the 2 April 1982 session of trial 2/81",
+    },
+    summary: {
+      es: "Extenso interrogatorio del teniente general Gabeiras por los letrados defensores. Gabeiras adoptó una actitud cauta y fue sometido a un acoso sistemático por los abogados, generando numerosos incidentes y protestas en la sala.",
+      en: "Extensive cross-examination of Lieutenant General Gabeiras by defense lawyers. Gabeiras adopted a cautious stance and was systematically pressured by attorneys, generating numerous incidents and protests in the courtroom.",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_43_R.pdf`,
+  },
+  {
+    id: "doc-44-r",
+    filename: "Doc_44_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-04-01",
+    title: {
+      es: "Nota informativa sobre la sesión del 1 de abril de 1982 del juicio 2/81",
+      en: "Intelligence report on the 1 April 1982 session of trial 2/81",
+    },
+    summary: {
+      es: "Interrogatorios de los tenientes Vecino y Carricondo y del procesado civil García Carrés. El fiscal presionó intensamente a García Carrés por sus numerosas casualidades que le situaban en momentos clave de la trama.",
+      en: "Interrogations of Lieutenants Vecino and Carricondo and civilian defendant García Carrés. The prosecutor intensely pressured García Carrés over his numerous coincidences placing him at key moments of the conspiracy.",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_44_R.pdf`,
+  },
+  {
+    id: "doc-46-r",
+    filename: "Doc_46_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-04-05",
+    title: {
+      es: "Nota informativa sobre los incidentes en la sesión del 5 de abril de 1982",
+      en: "Intelligence report on the incidents during the 5 April 1982 session",
+    },
+    summary: {
+      es: "Grave incidente durante la declaración del general Sáez de Santamaría al usar el término rehenes. El teniente general Milans del Bosch abandonó la sala indignado, seguido por varios procesados y familiares, provocando la suspensión de la sesión.",
+      en: "Serious incident during General Sáez de Santamaría's testimony when he used the term hostages. Lieutenant General Milans del Bosch left the courtroom in outrage, followed by several defendants and relatives, causing the session's suspension.",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_46_R.pdf`,
+  },
+  {
+    id: "doc-47-r",
+    filename: "Doc_47_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-04-05",
+    title: {
+      es: "Información integrada sobre tensiones en torno al juicio y actividad involucionista",
+      en: "Integrated intelligence on tensions surrounding the trial and involutionist activity",
+    },
+    summary: {
+      es: "Análisis de la tensión creciente por el incidente durante la declaración del general Sáez de Santamaría, la campaña de prensa involucionista, la actividad de grupos de extrema derecha y los rumores sobre posibles nuevas intervenciones militares.",
+      en: "Analysis of rising tensions from the incident during General Sáez de Santamaría's testimony, the involutionist press campaign, far-right group activity, and rumors about possible new military interventions.",
+    },
+    chapters: ["juicio", "consecuencias"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_47_R.pdf`,
+  },
+  {
+    id: "doc-48-r",
+    filename: "Doc_48_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-03-30",
+    title: {
+      es: "Nota informativa sobre la sesión del 30 de marzo de 1982 del juicio 2/81",
+      en: "Intelligence report on the 30 March 1982 session of trial 2/81",
+    },
+    summary: {
+      es: "Interrogatorios de seis tenientes de la Guardia Civil procesados: Izquierdo, Álvarez, Núñez, Ramos, Alonso y Boza. Todos alegaron obediencia a sus capitanes y desconocimiento de la trama, invocando que la operación contaba con el respaldo del Rey.",
+      en: "Interrogations of six indicted Civil Guard lieutenants: Izquierdo, Álvarez, Núñez, Ramos, Alonso, and Boza. All claimed obedience to their captains and ignorance of the plot, invoking that the operation had the King's backing.",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_48_R.pdf`,
+  },
+  {
+    id: "doc-49-r",
+    filename: "Doc_49_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-03-29",
+    title: {
+      es: "Nota informativa sobre la sesión del 29 de marzo de 1982 del juicio 2/81",
+      en: "Intelligence report on the 29 March 1982 session of trial 2/81",
+    },
+    summary: {
+      es: "Interrogatorios del capitán Gómez Iglesias del CESID, el capitán Álvarez Arenas, el capitán Ignacio Román y el capitán Pascual Gálvez. Gómez Iglesias negó toda implicación pese a las contradicciones con la declaración de Tejero.",
+      en: "Interrogations of Captain Gómez Iglesias from CESID, Captain Álvarez Arenas, Captain Ignacio Román, and Captain Pascual Gálvez. Gómez Iglesias denied all involvement despite contradictions with Tejero's testimony.",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_49_R.pdf`,
+  },
+  {
+    id: "doc-51-r",
+    filename: "Doc_51_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-03-24",
+    title: {
+      es: "Nota informativa sobre la sesión del 24 de marzo de 1982 del juicio 2/81",
+      en: "Intelligence report on the 24 March 1982 session of trial 2/81",
+    },
+    summary: {
+      es: "Interrogatorios de los capitanes de la Guardia Civil Pérez de la Lastra, Lázaro, Bobis y del capitán Cid Fortea. S.M. fue citado al menos 19 veces. Se mencionó que Tejero afirmó que Armada le dio la orden de entrar en el Congreso.",
+      en: "Interrogations of Civil Guard captains Pérez de la Lastra, Lázaro, Bobis, and Captain Cid Fortea. H.M. was cited at least 19 times. Tejero's claim that Armada ordered him to enter Congress was referenced.",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_51_R.pdf`,
+  },
+  {
+    id: "doc-52-r",
+    filename: "Doc_52_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-03-22",
+    title: {
+      es: "Nota informativa sobre la sesión del 22 de marzo de 1982 del juicio 2/81",
+      en: "Intelligence report on the 22 March 1982 session of trial 2/81",
+    },
+    summary: {
+      es: "Continuación del interrogatorio del comandante Pardo Zancada e inicio del interrogatorio del comandante Cortina del CESID. S.M. fue citado no menos de 55 veces. Se evidenció la agresividad del fiscal con Cortina y las tensiones entre líneas de defensa.",
+      en: "Continuation of Commander Pardo Zancada's interrogation and start of Commander Cortina's (CESID) interrogation. H.M. was cited no fewer than 55 times. The prosecutor's aggressiveness with Cortina and tensions between defense strategies were evident.",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_52_R.pdf`,
+  },
+  {
+    id: "doc-53-r",
+    filename: "Doc_53_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-03-23",
+    title: {
+      es: "Nota informativa sobre la sesión del 23 de marzo de 1982 del juicio 2/81",
+      en: "Intelligence report on the 23 March 1982 session of trial 2/81",
+    },
+    summary: {
+      es: "Conclusión del interrogatorio del comandante Cortina e interrogatorios del capitán Acera y el capitán Batista. Acera declaró que Gómez Iglesias colaboró en los preparativos y que Tejero afirmó haber recibido órdenes de Armada.",
+      en: "Conclusion of Commander Cortina's interrogation and interrogations of Captain Acera and Captain Batista. Acera testified that Gómez Iglesias collaborated in preparations and that Tejero claimed to have received orders from Armada.",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_53_R.pdf`,
+  },
+  {
+    id: "doc-54-r",
+    filename: "Doc_54_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-03-18",
+    title: {
+      es: "Nota informativa sobre la sesión del 18 de marzo de 1982 del juicio 2/81",
+      en: "Intelligence report on the 18 March 1982 session of trial 2/81",
+    },
+    summary: {
+      es: "Conclusión del interrogatorio de Tejero, interrogatorio del teniente coronel Mas Oliver e inicio del interrogatorio del comandante Pardo Zancada. Mas Oliver confirmó las reuniones Armada-Milans y Pardo detalló su participación voluntaria en los hechos.",
+      en: "Conclusion of Tejero's interrogation, interrogation of Lt. Col. Mas Oliver, and start of Commander Pardo Zancada's interrogation. Mas Oliver confirmed the Armada-Milans meetings and Pardo detailed his voluntary participation in the events.",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_54_R.pdf`,
+  },
+  {
+    id: "doc-56-r",
+    filename: "Doc_56_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-03-16",
+    title: {
+      es: "Nota informativa sobre la sesión del 16 de marzo de 1982 del juicio 2/81",
+      en: "Intelligence report on the 16 March 1982 session of trial 2/81",
+    },
+    summary: {
+      es: "Continuación del interrogatorio del coronel Ibáñez Inglés e interrogatorio del coronel Manchado. Ibáñez reconoció haber redactado el Bando y Manchado justificó su entrega de medios a Tejero. Se denegó la petición de careo.",
+      en: "Continuation of Colonel Ibáñez Inglés's interrogation and interrogation of Colonel Manchado. Ibáñez admitted drafting the proclamation and Manchado justified providing resources to Tejero. The request for a confrontation was denied.",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_56_R.pdf`,
+  },
+  {
+    id: "doc-57-r",
+    filename: "Doc_57_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-03-15",
+    title: {
+      es: "Nota informativa sobre la sesión del 15 de marzo de 1982 del juicio 2/81",
+      en: "Intelligence report on the 15 March 1982 session of trial 2/81",
+    },
+    summary: {
+      es: "Conclusión del interrogatorio del coronel San Martín e inicio del interrogatorio del coronel Ibáñez Inglés. Ibáñez detalló reuniones privadas entre Armada y Milans y aseguró que Armada habló por teléfono con Milans los días 21 y 22 de febrero.",
+      en: "Conclusion of Colonel San Martín's interrogation and start of Colonel Ibáñez Inglés's interrogation. Ibáñez detailed private meetings between Armada and Milans and asserted that Armada spoke by phone with Milans on 21 and 22 February.",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_57_R.pdf`,
+  },
+  {
+    id: "doc-58-r",
+    filename: "Doc_58_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-03-12",
+    title: {
+      es: "Nota informativa sobre la sesión del 12 de marzo de 1982 del juicio 2/81",
+      en: "Intelligence report on the 12 March 1982 session of trial 2/81",
+    },
+    summary: {
+      es: "Interrogatorios del general Torres Rojas, el capitán de navío Menéndez Vives e inicio del coronel San Martín. S.M. fue nombrado de forma implicatoria no menos de 64 veces. Torres Rojas descargó toda responsabilidad en Milans y Armada.",
+      en: "Interrogations of General Torres Rojas, Navy Captain Menéndez Vives, and start of Colonel San Martín's. H.M. was named in an implicating manner no fewer than 64 times. Torres Rojas shifted all responsibility to Milans and Armada.",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_58_R.pdf`,
+  },
+  {
+    id: "doc-59-r",
+    filename: "Doc_59_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-03-10",
+    title: {
+      es: "Nota informativa sobre la sesión del 10 de marzo de 1982 del juicio 2/81",
+      en: "Intelligence report on the 10 March 1982 session of trial 2/81",
+    },
+    summary: {
+      es: "Continuación del interrogatorio del general Armada por los letrados defensores. S.M. fue citado no menos de 79 veces. Se evidenciaron dos líneas de defensa enfrentadas y se denegó el careo entre Milans y Armada solicitado por 18 letrados.",
+      en: "Continuation of General Armada's interrogation by defense lawyers. H.M. was cited no fewer than 79 times. Two opposing defense strategies emerged and the confrontation between Milans and Armada requested by 18 lawyers was denied.",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_59_R.pdf`,
+  },
+  {
+    id: "doc-61-r",
+    filename: "Doc_61_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-03-08",
+    title: {
+      es: "Nota informativa: sesión del juicio del 8 de marzo de 1982 — interrogatorio del TG Milans del Bosch",
+      en: "Intelligence note: trial session of 8 March 1982 — interrogation of Lt. Gen. Milans del Bosch",
+    },
+    summary: {
+      es: "Informe sobre la sesión en que comienza el interrogatorio de los procesados. El TG Milans del Bosch reconoce haber apoyado el levantamiento armado de Tejero y describe proyectos golpistas previos, invocando supuestos deseos del Rey canalizados por Armada.",
+      en: "Report on the session where interrogation of defendants begins. Lt. Gen. Milans del Bosch admits supporting Tejero's armed uprising and describes prior coup plots, invoking alleged wishes of the King channeled through Armada.",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_61_R.pdf`,
+  },
+  {
+    id: "doc-62-r",
+    filename: "Doc_62_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-03-05",
+    title: {
+      es: "Nota informativa: sesión del juicio del 4 de marzo de 1982 — defensas de Tejero, Mas Oliver, Cortina y otros",
+      en: "Intelligence note: trial session of 4 March 1982 — defences of Tejero, Mas Oliver, Cortina and others",
+    },
+    summary: {
+      es: "Informe detallado de la sesión con las defensas de Tejero, Mas Oliver, Cortina, Acera, Alonso Herraiz y Batista. Incluye declaraciones sobre el papel del CESID, la Operación Mister, y tensiones entre procesados. SM el Rey nombrado al menos 18 veces.",
+      en: "Detailed report on the session covering defences of Tejero, Mas Oliver, Cortina, Acera, Alonso Herraiz and Batista. Includes statements on CESID's role, Operation Mister, and tensions among defendants. HM the King mentioned at least 18 times.",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_62_R.pdf`,
+  },
+  {
+    id: "doc-63-r",
+    filename: "Doc_63_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-03-02",
+    title: {
+      es: "Nota informativa: sesión del juicio del 2 de marzo de 1982 — defensas del CN Menéndez, Coronel San Martín, Manchado y Tejero",
+      en: "Intelligence note: trial session of 2 March 1982 — defences of Capt. Menéndez, Col. San Martín, Manchado and Tejero",
+    },
+    summary: {
+      es: "Informe de sesión con defensas de múltiples procesados. SM el Rey nombrado no menos de 61 veces intentando su implicación. Incluye panfleto del PCE(m-l) criticando el juicio como farsa y exigiendo depuración del Ejército.",
+      en: "Session report covering multiple defendants' defences. HM the King mentioned no fewer than 61 times suggesting his involvement. Includes PCE(m-l) pamphlet criticising the trial as a farce and demanding Army purges.",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_63_R.pdf`,
+  },
+  {
+    id: "doc-64-r",
+    filename: "Doc_64_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-03-16",
+    title: {
+      es: "Información integrada: análisis del desarrollo de la vista pública y repercusiones sociales",
+      en: "Integrated intelligence: analysis of the public trial proceedings and social repercussions",
+    },
+    summary: {
+      es: "Análisis global del juicio señalando la erosión de la Corona por alusiones reiteradas, la reactivación de la prensa involucionista y el aumento de temores sociales sobre una nueva acción golpista. Destaca la escasa intervención del tribunal para frenar las referencias a SM.",
+      en: "Overall trial analysis noting erosion of the Crown through repeated allusions, resurgence of involutionist press, and growing public fears of a new coup. Highlights the tribunal's insufficient intervention to stop references to the King.",
+    },
+    chapters: ["juicio", "consecuencias"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_64_R.pdf`,
+  },
+  {
+    id: "doc-66-r",
+    filename: "Doc_66_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-02-26",
+    title: {
+      es: "Nota informativa: sesión del juicio del 26 de febrero de 1982 — defensa del General Armada",
+      en: "Intelligence note: trial session of 26 February 1982 — defence of General Armada",
+    },
+    summary: {
+      es: "Sesión dedicada a la defensa de Armada por el letrado Hermosilla, con lectura de numerosas declaraciones de generales. La defensa presenta a Armada como ajeno a la conspiración, leal a la Corona y autorizado a negociar a título personal.",
+      en: "Session devoted to Armada's defence by lawyer Hermosilla, reading numerous generals' statements. The defence portrays Armada as uninvolved in the conspiracy, loyal to the Crown, and personally authorised to negotiate.",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_66_R.pdf`,
+  },
+  {
+    id: "doc-67-r",
+    filename: "Doc_67_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-02-25",
+    title: {
+      es: "Nota informativa: sesión del juicio del 24 de febrero de 1982 — defensas de Milans del Bosch, Ibáñez y Armada",
+      en: "Intelligence note: trial session of 24 February 1982 — defences of Milans del Bosch, Ibáñez and Armada",
+    },
+    summary: {
+      es: "Informe de la segunda sesión con lectura de hojas de servicios de Milans del Bosch e Ibáñez, notas del CESID y líneas iniciales de defensa. SM nombrado no menos de 74 veces. Incluye comunicado de los procesados rechazando un artículo de Diario 16.",
+      en: "Report on the second session with reading of Milans del Bosch and Ibáñez service records, CESID notes, and initial defence lines. HM mentioned no fewer than 74 times. Includes defendants' communiqué rejecting a Diario 16 article.",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_67_R.pdf`,
+  },
+  {
+    id: "doc-68-r",
+    filename: "Doc_68_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-02-24",
+    title: {
+      es: "Nota informativa: sesión del juicio del 23 de febrero de 1982 — incidente con Diario 16 y declaraciones de oficiales de la Guardia Civil",
+      en: "Intelligence note: trial session of 23 February 1982 — Diario 16 incident and Civil Guard officers' statements",
+    },
+    summary: {
+      es: "Sesión marcada por la negativa de procesados y defensores a comparecer por un artículo de Diario 16 sobre el asalto al Congreso. Se retiraron acreditaciones al diario. Por la tarde se leyeron declaraciones de oficiales de la Guardia Civil alegando obediencia debida.",
+      en: "Session marked by defendants and lawyers refusing to appear over a Diario 16 article about the Congress assault. The newspaper's credentials were revoked. Afternoon featured Civil Guard officers' statements claiming due obedience.",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_68_R.pdf`,
+  },
+  {
+    id: "doc-69-r",
+    filename: "Doc_69_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-02-22",
+    title: {
+      es: "Nota informativa: sesión del juicio del 22 de febrero de 1982 — declaraciones de Cortina, Torres Rojas, Pardo Zancada y otros",
+      en: "Intelligence note: trial session of 22 February 1982 — statements by Cortina, Torres Rojas, Pardo Zancada and others",
+    },
+    summary: {
+      es: "Lectura de declaraciones de procesados clave. Cortina y Gómez Iglesias niegan participación conspirativa. Torres Rojas, San Martín y Pardo exaltan valores morales. El Rey o la Corona mencionados no menos de 89 veces.",
+      en: "Reading of key defendants' statements. Cortina and Gómez Iglesias deny any conspiratorial role. Torres Rojas, San Martín and Pardo exalt moral values. The King or Crown mentioned no fewer than 89 times.",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_69_R.pdf`,
+  },
+  {
+    id: "doc-70-r",
+    filename: "Doc_70_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-02-20",
+    title: {
+      es: "Nota informativa: sesión del juicio del 20 de febrero de 1982 — declaraciones de Tejero, Ibáñez y Mas Oliver",
+      en: "Intelligence note: trial session of 20 February 1982 — statements by Tejero, Ibáñez and Mas Oliver",
+    },
+    summary: {
+      es: "Sesión matinal con lecturas de cuatro declaraciones de Tejero, careo con García Carrés y Gómez Iglesias, y declaraciones de Ibáñez y Mas Oliver. Invocaciones continuadas al protagonismo del Rey y la Reina.",
+      en: "Morning session with readings of four Tejero statements, confrontations with García Carrés and Gómez Iglesias, and Ibáñez and Mas Oliver statements. Continuous invocations of the King's and Queen's involvement.",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_70_R.pdf`,
+  },
+  {
+    id: "doc-71-r",
+    filename: "Doc_71_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-02-19",
+    title: {
+      es: "Nota informativa: primera sesión de la vista oral — 19 de febrero de 1982",
+      en: "Intelligence note: first session of the oral trial — 19 February 1982",
+    },
+    summary: {
+      es: "Informe de la sesión inaugural del juicio 2/81. Lectura del apuntamiento con filiaciones, autos de procesamiento y conclusiones. Numerosas menciones a SM. Procesados reaccionan con gestos a declaraciones de Fernández Campo, Gabeiras y Laína.",
+      en: "Report on the inaugural session of trial 2/81. Reading of the case summary including identifications, indictments and conclusions. Numerous mentions of HM. Defendants react visibly to statements by Fernández Campo, Gabeiras and Laína.",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_71_R.pdf`,
+  },
+  {
+    id: "doc-72-r",
+    filename: "Doc_72_R.txt",
+    ministry: "defensa-cni",
+    classification: "secreto",
+    date: "1981-03-09",
+    title: {
+      es: "Informe del CESID sobre la amenaza interior: separatismo, revolución e involución",
+      en: "CESID report on internal threat: separatism, revolution and involution",
+    },
+    summary: {
+      es: "Extenso informe analítico del Centro Superior de Información de la Defensa sobre la amenaza interior en España: análisis de agentes separatistas, revolucionarios, involucionistas y terroristas, panorama político-sindical y grandes problemas nacionales.",
+      en: "Comprehensive CESID analytical report on Spain's internal threat: analysis of separatist, revolutionary, involutionist and terrorist agents, political-union landscape and major national problems.",
+    },
+    chapters: ["conspiracion"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_72_R.pdf`,
+  },
+  {
+    id: "doc-74-r",
+    filename: "Doc_74_R.txt",
+    ministry: "defensa-cni",
+    classification: "secreto",
+    date: "1982-03",
+    title: {
+      es: "Nota interna del CESID sobre la situación del Comandante Cortina y el secreto del Centro",
+      en: "CESID internal note on Commander Cortina's situation and Centre secrecy",
+    },
+    summary: {
+      es: "Nota interna alertando sobre las acusaciones al Comandante Cortina y sus responsabilidades en el Centro. Encarga mantener el más estricto secreto sobre el CESID, su personal y sus misiones. Ordena destruir la nota tras su lectura.",
+      en: "Internal note warning about accusations against Commander Cortina and his responsibilities at the Centre. Orders strictest secrecy about CESID, its personnel and missions. Instructs destruction of the note after reading.",
+    },
+    chapters: ["cesid"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_74_R.pdf`,
+  },
+  {
+    id: "doc-76-r",
+    filename: "Doc_76_R.txt",
+    ministry: "defensa-cni",
+    classification: "secreto",
+    date: "1982-02",
+    title: {
+      es: "Nota informativa: declaraciones del Capitán Sánchez Valiente en el extranjero",
+      en: "Intelligence note: statements by Captain Sánchez Valiente abroad",
+    },
+    summary: {
+      es: "Declaraciones del Capitán Sánchez Valiente (en rebeldía) desde el extranjero. Afirma que no confiaba en el éxito del golpe. Menciona a Milans del Bosch y Armada con supuesta aprobación del Rey. Describe su huida a Barcelona y Andorra.",
+      en: "Statements by Captain Sánchez Valiente (in absentia) from abroad. Claims he did not trust the coup would succeed. Mentions Milans del Bosch and Armada with alleged royal approval. Describes his flight to Barcelona and Andorra.",
+    },
+    chapters: ["conspiracion", "consecuencias"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_76_R.pdf`,
+  },
+  {
+    id: "doc-78-r",
+    filename: "Doc_78_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1981-08-06",
+    title: {
+      es: "Comunicación del auto de procesamiento del Comandante Cortina al CESID",
+      en: "Notification of Commander Cortina's indictment to CESID",
+    },
+    summary: {
+      es: "Comunicación oficial del Director General del CESID (Alonso Manglano) al Comandante Cortina, notificándole su auto de procesamiento en la Causa 2/81, su baja como destinado en la Subsecretaría de Defensa y su situación de procesado en Madrid.",
+      en: "Official communication from CESID Director General (Alonso Manglano) to Commander Cortina, notifying him of his indictment in Case 2/81, removal from his Defence Undersecretariat post and status as defendant in Madrid.",
+    },
+    chapters: ["consecuencias"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_78_R.pdf`,
+  },
+  {
+    id: "doc-79-r",
+    filename: "Doc_79_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-01-18",
+    title: {
+      es: "Requerimiento del Consejo Supremo: comparecencia de miembros del CESID como testigos",
+      en: "Supreme Military Court summons: CESID members to appear as witnesses",
+    },
+    summary: {
+      es: "Oficio urgente del Consejo Supremo solicitando la comparecencia como testigos en la Causa 2/81 del Capitán Zovión de la Calle, Cabo 1.º Monge Segura y guardias civiles Álvarez Sola y Castillo Ortega, todos del CESID.",
+      en: "Urgent summons from the Supreme Council requesting appearance as witnesses in Case 2/81 of Captain Zovión de la Calle, Corporal Monge Segura, and Civil Guards Álvarez Sola and Castillo Ortega, all from CESID.",
+    },
+    chapters: ["juicio", "cesid"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_79_R.pdf`,
+  },
+  {
+    id: "doc-81-r",
+    filename: "Doc_81_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-01-12",
+    title: {
+      es: "Certificación del Director del CESID sobre las actividades del Comandante Cortina y su equipo de transmisiones",
+      en: "CESID Director's certification on Commander Cortina's activities and communications equipment",
+    },
+    summary: {
+      es: "Certificación oficial del Director General Alonso Manglano para la Causa 2/81 sobre las actividades informativas de la unidad de Cortina, el sistema de transmisiones independiente y la confirmación de que ninguna operación del 23-F estaba vinculada al asalto al Congreso.",
+      en: "Official certification by Director General Alonso Manglano for Case 2/81 on Cortina's unit intelligence activities, its independent communications system, and confirmation that no 23-F operation was linked to the Congress assault.",
+    },
+    chapters: ["juicio", "cesid"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_81_R.pdf`,
+  },
+  {
+    id: "doc-82-r",
+    filename: "Doc_82_R.txt",
+    ministry: "defensa-cni",
+    classification: "reservado",
+    date: "1982-01-12",
+    title: {
+      es: "Orden del CESID: comparecencia de un oficial y dos guardias civiles ante el Consejo Supremo",
+      en: "CESID order: appearance of one officer and two Civil Guards before the Supreme Council",
+    },
+    summary: {
+      es: "Comunicación del Director General Alonso Manglano al Director General de la Guardia Civil, ordenando la comparecencia del Capitán José Ramón Zovión de la Calle y guardias Castillo Ortega y Álvarez Sola como testigos en la Causa 2/81.",
+      en: "Communication from Director General Alonso Manglano to the Civil Guard Director General, ordering the appearance of Captain José Ramón Zovión de la Calle and guards Castillo Ortega and Álvarez Sola as witnesses in Case 2/81.",
+    },
+    chapters: ["juicio", "cesid"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_82_R.pdf`,
+  },
+  {
+    id: "doc-83-r",
+    filename: "Doc_83_R.txt",
+    ministry: "defensa-cni",
+    classification: "secreto",
+    date: "1982-02-05",
+    title: {
+      es: "Nota interior: rumores sobre entrevistas secretas del Rey con Armada y Milans del Bosch antes del juicio",
+      en: "Internal note: rumours of secret meetings between the King and Armada and Milans del Bosch before the trial",
+    },
+    summary: {
+      es: "Nota informativa recogiendo rumores de fuentes cualificadas sobre supuestas entrevistas secretas de SM el Rey con los generales Armada y Milans del Bosch antes de la vista oral, buscando proteger a la Corona del proceso.",
+      en: "Intelligence note reporting rumours from qualified sources about alleged secret meetings between HM the King and Generals Armada and Milans del Bosch before the trial, seeking to shield the Crown from proceedings.",
+    },
+    chapters: ["conspiracion", "juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_83_R.pdf`,
   },
   {
     id: "doc-84-r",
@@ -947,26 +1923,261 @@ export const documents: Document[] = [
       en: "Intelligence assessments and military propaganda monitoring during and after the trial",
     },
     chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/cni/Documento_84_R.pdf`,
   },
 
   // ===========================================================================
   // DEFENSA — CAUSAS-CARPETAS (24 documents)
   // ===========================================================================
-  // Carpeta 21800 (14 documents)
+  // Carpeta 21800 — Reservado (9 documents)
   {
-    id: "carpeta-21800-procesamientos",
-    filename: "Carpeta_21800_procesamientos.txt",
+    id: "carpeta-21800-procesamiento-milans",
+    filename: "Carpeta_21800_Reservado_comunicacion_del_procesamiento_de_Milans.txt",
+    ministry: "defensa-causas",
+    classification: "reservado",
+    title: {
+      es: "Comunicación del procesamiento de Milans del Bosch",
+      en: "Notification of Milans del Bosch's indictment",
+    },
+    summary: {
+      es: "Comunicación del Consejo Supremo de Justicia Militar al Ministro de Defensa trasladando el auto de procesamiento del Teniente General Milans del Bosch en la Causa 2/81",
+      en: "Communication from the Supreme Council of Military Justice to the Defense Minister forwarding the indictment order of Lieutenant General Milans del Bosch in Case 2/81",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/Carpeta_21800_Reservado_comunicacion_del_procesamiento_de_Milans.pdf`,
+  },
+  {
+    id: "carpeta-21800-reservado-implicado-1",
+    filename: "Carpeta_21800_Reservado_comunicacion_procesamiento_de_implicado_1.txt",
+    ministry: "defensa-causas",
+    classification: "reservado",
+    date: "1981-04-09",
+    title: {
+      es: "Comunicación de procesamiento de implicado (reservado 1)",
+      en: "Notification of defendant's indictment (reserved 1)",
+    },
+    summary: {
+      es: "Comunicación del Consejo Supremo de Justicia Militar remitiendo testimonio de auto de procesamiento firme de un implicado en la Causa 2/81, tras desestimación de recursos",
+      en: "Communication from the Supreme Council of Military Justice forwarding certified indictment order of a defendant in Case 2/81, after appeals were dismissed",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/Carpeta_21800_Reservado_comunicacion_procesamiento_de_implicado_1.pdf`,
+  },
+  {
+    id: "carpeta-21800-reservado-implicado-2",
+    filename: "Carpeta_21800_Reservado_comunicacion_procesamiento_de_implicado_2.txt",
+    ministry: "defensa-causas",
+    classification: "reservado",
+    title: {
+      es: "Comunicación de procesamiento de implicado (reservado 2)",
+      en: "Notification of defendant's indictment (reserved 2)",
+    },
+    summary: {
+      es: "Comunicación del Consejo Supremo de Justicia Militar remitiendo testimonio de auto de procesamiento firme de un implicado en la Causa 2/81",
+      en: "Communication from the Supreme Council of Military Justice forwarding certified indictment order of a defendant in Case 2/81",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/Carpeta_21800_Reservado_comunicacion_procesamiento_de_implicado_2.pdf`,
+  },
+  {
+    id: "carpeta-21800-reservado-implicado-3",
+    filename: "Carpeta_21800_Reservado_comunicacion_procesamiento_de_implicado_3.txt",
+    ministry: "defensa-causas",
+    classification: "reservado",
+    date: "1981-06-20",
+    title: {
+      es: "Comunicación de procesamiento del Comandante Cortina Prieto",
+      en: "Notification of Commander Cortina Prieto's indictment",
+    },
+    summary: {
+      es: "Remisión del auto de procesamiento firme del Comandante de Infantería José Cortina Prieto, tras desestimación del recurso interpuesto, conforme al art. 555 del Código de Justicia Militar",
+      en: "Forwarding of the final indictment order of Infantry Commander José Cortina Prieto, after dismissal of his appeal, per Article 555 of the Military Justice Code",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/Carpeta_21800_Reservado_comunicacion_procesamiento_de_implicado_3.pdf`,
+  },
+  {
+    id: "carpeta-21800-reservado-implicado-4",
+    filename: "Carpeta_21800_Reservado_comunicacion_procesamiento_de_implicado_4.txt",
+    ministry: "defensa-causas",
+    classification: "reservado",
+    date: "1981-07-03",
+    title: {
+      es: "Comunicación de procesamiento del Capitán Gómez Iglesias",
+      en: "Notification of Captain Gómez Iglesias's indictment",
+    },
+    summary: {
+      es: "Remisión del auto de procesamiento firme del Capitán de la Guardia Civil Vicente Gómez Iglesias, tras desestimación del recurso interpuesto en la Causa 2/81",
+      en: "Forwarding of the final indictment order of Civil Guard Captain Vicente Gómez Iglesias, after dismissal of his appeal in Case 2/81",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/Carpeta_21800_Reservado_comunicacion_procesamiento_de_implicado_4.pdf`,
+  },
+  {
+    id: "carpeta-21800-reservado-implicado-5",
+    filename: "Carpeta_21800_Reservado_comunicacion_procesamiento_de_implicado_5.txt",
+    ministry: "defensa-causas",
+    classification: "reservado",
+    title: {
+      es: "Comunicación de procesamiento de implicado (reservado 5)",
+      en: "Notification of defendant's indictment (reserved 5)",
+    },
+    summary: {
+      es: "Comunicación del Consejo Supremo de Justicia Militar remitiendo testimonio de auto de procesamiento firme de un implicado en la Causa 2/81",
+      en: "Communication from the Supreme Council of Military Justice forwarding certified indictment order of a defendant in Case 2/81",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/Carpeta_21800_Reservado_comunicacion_procesamiento_de_implicado_5.pdf`,
+  },
+  {
+    id: "carpeta-21800-reservado-implicado-6",
+    filename: "Carpeta_21800_Reservado_comunicacion_procesamiento_de_implicado_6.txt",
+    ministry: "defensa-causas",
+    classification: "reservado",
+    date: "1981-06-17",
+    title: {
+      es: "Comunicación de procesamiento del Capitán Batista González",
+      en: "Notification of Captain Batista González's indictment",
+    },
+    summary: {
+      es: "Remisión del auto de procesamiento firme del Capitán de Artillería Juan Batista González, tras desestimación del recurso interpuesto en la Causa 2/81",
+      en: "Forwarding of the final indictment order of Artillery Captain Juan Batista González, after dismissal of his appeal in Case 2/81",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/Carpeta_21800_Reservado_comunicacion_procesamiento_de_implicado_6.pdf`,
+  },
+  {
+    id: "carpeta-21800-reservado-declaracion-3",
+    filename: "Carpeta_21800_Reservado_oficio_dando_cuenta_toma_de_declaracion_3.txt",
+    ministry: "defensa-causas",
+    classification: "reservado",
+    title: {
+      es: "Oficio dando cuenta de toma de declaración (reservado 3)",
+      en: "Official notice reporting a deposition (reserved 3)",
+    },
+    summary: {
+      es: "Oficio del Consejo Supremo de Justicia Militar dando cuenta de la toma de declaración a un implicado en la Causa 2/81",
+      en: "Official notice from the Supreme Council of Military Justice reporting a deposition of a defendant in Case 2/81",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/Carpeta_21800_Reservado_oficio_dando_cuenta_toma_de_declaracion_3.pdf`,
+  },
+  {
+    id: "carpeta-21800-reservado-declaracion-4",
+    filename: "Carpeta_21800_Reservado_oficio_dando_cuenta_toma_de_declaracion_4.txt",
+    ministry: "defensa-causas",
+    classification: "reservado",
+    title: {
+      es: "Oficio dando cuenta de toma de declaración (reservado 4)",
+      en: "Official notice reporting a deposition (reserved 4)",
+    },
+    summary: {
+      es: "Oficio del Consejo Supremo de Justicia Militar dando cuenta de la toma de declaración a un implicado en la Causa 2/81, con referencia a solicitud de intervención como parte",
+      en: "Official notice from the Supreme Council of Military Justice reporting a deposition of a defendant in Case 2/81, with reference to a request to intervene as a party",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/Carpeta_21800_Reservado_oficio_dando_cuenta_toma_de_declaracion_4.pdf`,
+  },
+  // Carpeta 21800 — Secreto (6 documents)
+  {
+    id: "carpeta-21800-secreto-implicado-1",
+    filename: "Carpeta_21800_Secreto_comunicacion_procesamiento_de_implicado_1.txt",
+    ministry: "defensa-causas",
+    classification: "secreto",
+    date: "1981-04-22",
+    title: {
+      es: "Comunicación de procesamiento del General Torres Rojas",
+      en: "Notification of General Torres Rojas's indictment",
+    },
+    summary: {
+      es: "Comunicación del Gabinete del Ministro de Defensa remitiendo auto de procesamiento firme del General de División Luis Torres Rojas al Jefe del Estado Mayor del Ejército",
+      en: "Communication from the Defense Minister's Office forwarding the final indictment order of Division General Luis Torres Rojas to the Army Chief of Staff",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/Carpeta_21800_Secreto_comunicacion_procesamiento_de_implicado_1.pdf`,
+  },
+  {
+    id: "carpeta-21800-secreto-implicado-2",
+    filename: "Carpeta_21800_Secreto_comunicacion_procesamiento_de_implicado_2.txt",
+    ministry: "defensa-causas",
+    classification: "secreto",
+    date: "1981-04-02",
+    title: {
+      es: "Comunicación de procesamiento del Capitán de Navío Menéndez Vives",
+      en: "Notification of Captain Menéndez Vives's indictment",
+    },
+    summary: {
+      es: "Comunicación del Gabinete del Ministro de Defensa remitiendo auto de procesamiento firme del Capitán de Navío Camilo Menéndez Vives al Almirante Jefe del Estado Mayor de la Armada",
+      en: "Communication from the Defense Minister's Office forwarding the final indictment order of Navy Captain Camilo Menéndez Vives to the Navy Chief of Staff",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/Carpeta_21800_Secreto_comunicacion_procesamiento_de_implicado_2.pdf`,
+  },
+  {
+    id: "carpeta-21800-recurso-recusacion",
+    filename: "Carpeta_21800_Secreto_informe_juridico_sobre_recurso_contra_la_desestimacion_de_la_recusacion_del_Ministro_de_Defensa.txt",
+    ministry: "defensa-causas",
+    classification: "secreto",
+    date: "1981-09-02",
+    title: {
+      es: "Informe jurídico sobre recurso contra la recusación del Ministro de Defensa",
+      en: "Legal report on appeal against the recusal of the Defense Minister",
+    },
+    summary: {
+      es: "Informe del Asesor General del Ministerio de Defensa sobre el recurso de reposición presentado por José Cid Fortea contra la desestimación de la recusación del Ministro de Defensa. Concluye su inadmisibilidad procesal",
+      en: "Report by the Defense Ministry's General Counsel on the appeal filed by José Cid Fortea against the dismissal of the Defense Minister's recusal. Concludes procedural inadmissibility",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/Carpeta_21800_Secreto_informe_juridico_sobre_recurso_contra_la_desestimacion_de_la_recusacion_del_Ministro_de_Defensa.pdf`,
+  },
+  {
+    id: "carpeta-21800-secreto-declaracion-1",
+    filename: "Carpeta_21800_Secreto_oficio_dando_cuenta_toma_de_declaracion_1.txt",
     ministry: "defensa-causas",
     classification: "secreto",
     title: {
-      es: "Carpeta 21800: Procesamientos múltiples",
-      en: "Folder 21800: Multiple prosecutions",
+      es: "Oficio dando cuenta de toma de declaración (secreto 1)",
+      en: "Official notice reporting a deposition (secret 1)",
     },
     summary: {
-      es: "Comunicaciones de procesamiento de Milans del Bosch, Torres Rojas, Menéndez Vives, Cortina, Gómez Iglesias, Batista González. Recurso de recusación contra Ministro de Defensa, protesta de abogados",
-      en: "Prosecution communications for Milans del Bosch, Torres Rojas, Menéndez Vives, Cortina, Gómez Iglesias, Batista González. Recusal motion against Defense Minister, lawyers' protest",
+      es: "Oficio del Consejo Supremo de Justicia Militar comunicando al Ministerio de Defensa la toma de declaración a un implicado en la Causa 2/81",
+      en: "Official notice from the Supreme Council of Military Justice informing the Defense Ministry of a deposition of a defendant in Case 2/81",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/Carpeta_21800_Secreto_oficio_dando_cuenta_toma_de_declaracion_1.pdf`,
+  },
+  {
+    id: "carpeta-21800-secreto-declaracion-2",
+    filename: "Carpeta_21800_Secreto_oficio_dando_cuenta_toma_de_declaracion_2.txt",
+    ministry: "defensa-causas",
+    classification: "secreto",
+    title: {
+      es: "Oficio dando cuenta de toma de declaración (secreto 2)",
+      en: "Official notice reporting a deposition (secret 2)",
+    },
+    summary: {
+      es: "Oficio del Consejo Supremo de Justicia Militar comunicando al Ministerio de Defensa la toma de declaración a un implicado en la Causa 2/81",
+      en: "Official notice from the Supreme Council of Military Justice informing the Defense Ministry of a deposition of a defendant in Case 2/81",
+    },
+    chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/Carpeta_21800_Secreto_oficio_dando_cuenta_toma_de_declaracion_2.pdf`,
+  },
+  {
+    id: "carpeta-21800-peticiones-abogados",
+    filename: "Carpeta_21800_Secreto_traslado_de_peticiones_de_los_Abogados_de_los_condenados.txt",
+    ministry: "defensa-causas",
+    classification: "secreto",
+    date: "1981-07-28",
+    title: {
+      es: "Traslado de peticiones de los abogados de los procesados",
+      en: "Forwarding of petitions from the defendants' lawyers",
+    },
+    summary: {
+      es: "Protesta formal de los abogados defensores en la Causa 2/81 denunciando filtraciones del sumario a la prensa, traslado inconstitucional de Tejero a Cartagena, indefensión e incumplimiento de derechos fundamentales. Solicitan traslado de Tejero a Alcalá de Henares",
+      en: "Formal protest by defense lawyers in Case 2/81 denouncing leaks of the investigation to the press, unconstitutional transfer of Tejero to Cartagena, lack of defense and violations of fundamental rights. Request Tejero's transfer to Alcalá de Henares",
     },
     chapters: ["juicio", "prisioneros"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/Carpeta_21800_Secreto_traslado_de_peticiones_de_los_Abogados_de_los_condenados.pdf`,
   },
   // Carpeta 21801
   {
@@ -984,6 +2195,7 @@ export const documents: Document[] = [
       en: "Sanctioning of Military Judges Barcina Rodríguez (8 days arrest) and Carrero Ramos (14 days) for disrespect to Tribunal President, General Gómez de Salazar",
     },
     chapters: ["juicio"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/Carpeta_21801_Secreto_comunicando_sancion_a_consejeros_del_Consejo_Supremo_de_Justicia_Militar.pdf`,
   },
   // Carpeta 21802
   {
@@ -1000,6 +2212,24 @@ export const documents: Document[] = [
       en: "Telex about visits to Tejero, security protocols, lifting of isolation, communication restrictions, transfer to Cartagena naval prison",
     },
     chapters: ["prisioneros"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/Carpeta_21802_Secreto_comunicando_levantamiento_de_incomunicacion_de_Tejero.pdf`,
+  },
+  {
+    id: "carpeta-21802-seguridad-visitas",
+    filename: "Carpeta_21802_Secreto_copita_de_telex_dando_instrucciones_sobre_medidas_de_seguridad_con_las_visitas_a_Tejero.txt",
+    ministry: "defensa-causas",
+    classification: "secreto",
+    date: "1982-10-01",
+    title: {
+      es: "Télex con instrucciones sobre medidas de seguridad en visitas a Tejero",
+      en: "Telex with instructions on security measures for visits to Tejero",
+    },
+    summary: {
+      es: "Copia de télex militar con instrucciones sobre medidas de seguridad a aplicar durante las visitas de familiares a Tejero en prisión, dirigido al Capitán General de la Región Militar",
+      en: "Copy of military telex with instructions on security measures to apply during family visits to Tejero in prison, addressed to the Captain General of the Military Region",
+    },
+    chapters: ["prisioneros"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/Carpeta_21802_Secreto_copita_de_telex_dando_instrucciones_sobre_medidas_de_seguridad_con_las_visitas_a_Tejero.pdf`,
   },
   // Carpeta 21804
   {
@@ -1016,6 +2246,40 @@ export const documents: Document[] = [
       en: "Detailed report on Milans' detention at Army HQ. Complaints about treatment. Royal Household reviews conditions. Complete distribution of 33 defendants",
     },
     chapters: ["prisioneros"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/Carpeta_21804_Secreto_distribucion_de_los_procesados_por_la_causa_2_81_en_diferentes_unidades_militares_durante_el_juicio.pdf`,
+  },
+  {
+    id: "carpeta-21804-recurso-milans",
+    filename: "Carpeta_21804_Reservado_dacion_en_cuenta_de_recurso_de_queja_de_Milans_del_Bosch_sobre_su_detencion.txt",
+    ministry: "defensa-causas",
+    classification: "reservado",
+    title: {
+      es: "Dación en cuenta de recurso de queja de Milans del Bosch sobre su detención",
+      en: "Report on Milans del Bosch's grievance appeal regarding his detention",
+    },
+    summary: {
+      es: "Dación en cuenta del Consejo Supremo de Justicia Militar sobre el recurso de queja presentado por Milans del Bosch relativo a las condiciones de su detención",
+      en: "Report from the Supreme Council of Military Justice on the grievance appeal filed by Milans del Bosch regarding the conditions of his detention",
+    },
+    chapters: ["prisioneros"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/Carpeta_21804_Reservado_dacion_en_cuenta_de_recurso_de_queja_de_Milans_del_Bosch_sobre_su_detencion.pdf`,
+  },
+  {
+    id: "carpeta-21804-circunstancias-milans",
+    filename: "Carpeta_21804_Secreto_informacion_sobre_circunstancias_de_la_detencion_de_Milans_del_Bosch.txt",
+    ministry: "defensa-causas",
+    classification: "secreto",
+    date: "1981-04-28",
+    title: {
+      es: "Información sobre circunstancias de la detención de Milans del Bosch",
+      en: "Information on circumstances of Milans del Bosch's detention",
+    },
+    summary: {
+      es: "Expediente completo sobre la detención de Milans del Bosch: informe del Jefe del EME sobre condiciones de arresto, recurso de agravios tramitado por la Casa de S.M. el Rey, informe jurídico y resolución de S.M. desestimando el recurso",
+      en: "Complete file on Milans del Bosch's detention: Army Chief of Staff report on arrest conditions, grievance appeal processed through the Royal Household, legal report and HM's resolution dismissing the appeal",
+    },
+    chapters: ["prisioneros"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/Carpeta_21804_Secreto_informacion_sobre_circunstancias_de_la_detencion_de_Milans_del_Bosch.pdf`,
   },
   // Causa 9481
   {
@@ -1032,6 +2296,41 @@ export const documents: Document[] = [
       en: "Service record, desertion report, Legal Advisory General report on Captain Sánchez Valiente",
     },
     chapters: ["prisioneros"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/Causa_9481_Reservado_Hoja_de_servicios_del_Cap_Sanchez_Valiente.pdf`,
+  },
+  {
+    id: "causa-9481-abandono",
+    filename: "Causa_9481_Abandono.txt",
+    ministry: "defensa-causas",
+    classification: "sin-clasificar",
+    date: "1981-03-09",
+    title: {
+      es: "Causa 9481: Orden de instrucción de diligencias por abandono de destino del Capitán Sánchez Valiente",
+      en: "Case 9481: Order to investigate Captain Sánchez Valiente's desertion",
+    },
+    summary: {
+      es: "Orden del Director General de la Guardia Civil para instruir primeras diligencias por abandono de destino del Capitán Gil Sánchez Valiente Portillo, visto por última vez el 24 de febrero en las proximidades del Congreso de los Diputados",
+      en: "Order from the Director General of the Civil Guard to investigate the desertion of Captain Gil Sánchez Valiente Portillo, last seen on February 24 near the Congress of Deputies",
+    },
+    chapters: ["prisioneros"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/Causa_9481_Abandono.pdf`,
+  },
+  {
+    id: "causa-9481-hoja-servicios",
+    filename: "Causa_9481_Hoja.txt",
+    ministry: "defensa-causas",
+    classification: "sin-clasificar",
+    date: "1981-06-24",
+    title: {
+      es: "Causa 9481: Remisión de Hoja de Servicios del Capitán Sánchez Valiente",
+      en: "Case 9481: Forwarding of Captain Sánchez Valiente's service record",
+    },
+    summary: {
+      es: "Telegrama postal del Director General de la Guardia Civil remitiendo copia de la Hoja de Servicios del Capitán Gil Sánchez Valiente Portillo al Juez Militar Especial de la 1.ª Región Militar",
+      en: "Postal telegram from the Director General of the Civil Guard forwarding a copy of Captain Gil Sánchez Valiente Portillo's service record to the Special Military Judge of the 1st Military Region",
+    },
+    chapters: ["prisioneros"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/defensa/Causa_9481_Hoja.pdf`,
   },
 
   // ===========================================================================
@@ -1052,6 +2351,7 @@ export const documents: Document[] = [
       en: "Chronological index of US reaction: Haig statement, Reagan call, Congressional resolution",
     },
     chapters: ["internacional"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/exteriores/AGMAE-R39017/D.1._AGMAE_R39017_Exp._4.pdf`,
   },
   {
     id: "d-3",
@@ -1068,6 +2368,7 @@ export const documents: Document[] = [
       en: '"The role and leadership of King Juan Carlos were clearly instrumental." Statement praising the King and the Spanish people',
     },
     chapters: ["internacional"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/exteriores/AGMAE-R39017/D.3._AGMAE_R39017_Exp._4.pdf`,
   },
   {
     id: "d-8",
@@ -1084,6 +2385,7 @@ export const documents: Document[] = [
       en: '"Continued democratic political development in Spain makes an important contribution to US foreign policy interests." Resolution congratulating Spain',
     },
     chapters: ["internacional"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/exteriores/AGMAE-R39017/D.8._AGMAE_R39017_Exp._4.pdf`,
   },
   {
     id: "d-14",
@@ -1100,6 +2402,7 @@ export const documents: Document[] = [
       en: "New York Times criticizes Haig's statement. Felipe González in London contrasts \"supportive European attitudes\" with \"insensitive American attitudes\"",
     },
     chapters: ["internacional"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/exteriores/AGMAE-R39017/D.14._AGMAE_R39017_Exp._4.pdf`,
   },
   {
     id: "d-15",
@@ -1116,6 +2419,7 @@ export const documents: Document[] = [
       en: "Elvas city council (APU) motion condemning the \"fascist-inspired\" attempt and expressing solidarity with Spanish democracy",
     },
     chapters: ["internacional"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/exteriores/AGMAE-40201/D.15._AGMAE_R40201_Exp._215.pdf`,
   },
   {
     id: "d-18",
@@ -1131,6 +2435,7 @@ export const documents: Document[] = [
       en: "Dispatch from Spanish legation in Córdoba, Argentina. Latin American press and solidarity",
     },
     chapters: ["internacional"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/exteriores/AGA-83-07633/D.18._AGA-83-07633_exp._4.pdf`,
   },
   {
     id: "d-19",
@@ -1146,6 +2451,7 @@ export const documents: Document[] = [
       en: "Dispatch from Spanish representation in Mexico. Julián Marías article on the National Monarchy",
     },
     chapters: ["internacional"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/exteriores/AGA-83-07633/D.19._AGA-83-07633_exp._4.pdf`,
   },
   {
     id: "d-20",
@@ -1161,6 +2467,7 @@ export const documents: Document[] = [
       en: "Dispatch from Spanish embassy in Buenos Aires. Argentine Socialist Party expresses solidarity",
     },
     chapters: ["internacional"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/exteriores/AGA-83-07633/D.20._AGA-83-07633_exp._4.pdf`,
   },
   {
     id: "d-21",
@@ -1177,6 +2484,41 @@ export const documents: Document[] = [
       en: "Formal response from King Juan Carlos to Fidel Castro thanking his concern message. Expressing confidence in bilateral relations",
     },
     chapters: ["internacional"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/exteriores/AGA-83-07633/D.21._AGA-83-07633_exp._4.pdf`,
+  },
+  {
+    id: "d-22",
+    filename: "D.22._AGA-83-07633_exp._4.txt",
+    ministry: "exteriores",
+    classification: "sin-clasificar",
+    date: "1981-03-27",
+    title: {
+      es: "Felicitación de la CGT de Uruguay tras el fracaso del golpe",
+      en: "Congratulations from Uruguay's CGT after the failed coup",
+    },
+    summary: {
+      es: "Despacho del Encargado de Negocios en Montevideo, Jorge Dezcallar, remitiendo carta de la Confederación General de Trabajadores del Uruguay felicitando a España por superar el intento golpista del 23-F",
+      en: "Dispatch from the Chargé d'Affaires in Montevideo, Jorge Dezcallar, forwarding a letter from Uruguay's General Confederation of Workers congratulating Spain on overcoming the 23-F coup attempt",
+    },
+    chapters: ["internacional"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/exteriores/AGA-83-07633/D.22._AGA-83-07633_exp._4.pdf`,
+  },
+  {
+    id: "d-23",
+    filename: "D.23._AGA-83-07633_exp._4.txt",
+    ministry: "exteriores",
+    classification: "sin-clasificar",
+    date: "1981-03-25",
+    title: {
+      es: "Respuesta del Rey a la Cámara de Representantes de Puerto Rico",
+      en: "King's response to the Puerto Rico House of Representatives",
+    },
+    summary: {
+      es: "Carta del Rey Juan Carlos desde el Palacio de la Zarzuela agradeciendo al Secretario de la Cámara de Representantes de Puerto Rico el mensaje de simpatía y solidaridad con España tras los sucesos del 23-F",
+      en: "Letter from King Juan Carlos from the Zarzuela Palace thanking the Secretary of the Puerto Rico House of Representatives for the message of sympathy and solidarity with Spain after the 23-F events",
+    },
+    chapters: ["internacional"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/exteriores/AGA-83-07633/D.23._AGA-83-07633_exp._4.pdf`,
   },
   {
     id: "d-24",
@@ -1192,6 +2534,7 @@ export const documents: Document[] = [
       en: "Additional diplomatic dispatches from Spanish representations in Latin America",
     },
     chapters: ["internacional"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/exteriores/AGA-83-07633/D.24._AGA-83-07633_exp._4.pdf`,
   },
   {
     id: "d-25",
@@ -1208,6 +2551,7 @@ export const documents: Document[] = [
       en: "Cuban newspaper Granma publishes mocking article about trial incident, comparing defendants to \"peninsular gorillas\"",
     },
     chapters: ["internacional"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/exteriores/AGA-83-08764/D.25._AGA-83-08764_exp._5.pdf`,
   },
   {
     id: "d-26",
@@ -1224,6 +2568,7 @@ export const documents: Document[] = [
       en: "King Juan Carlos' telegram to West German President thanking support for the \"frustrated attack against constitutional Spain\"",
     },
     chapters: ["internacional"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/exteriores/AGA-83-09301/D.26._AGA-83-09301_exp._5.pdf`,
   },
   {
     id: "d-27",
@@ -1240,6 +2585,7 @@ export const documents: Document[] = [
       en: "King Juan Carlos' response to Queen Elizabeth II thanking her congratulations for defending democracy",
     },
     chapters: ["internacional"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/exteriores/AGA-83-09301/D.27._AGA-83-09301_exp._5.pdf`,
   },
   {
     id: "d-28",
@@ -1256,6 +2602,7 @@ export const documents: Document[] = [
       en: "Elizabeth II says she is \"strongly impressed.\" Speaker of the Commons congratulates Lavilla for \"Congress's conduct during the indignity\"",
     },
     chapters: ["internacional"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/exteriores/AGA-83-09301/D.28._AGA-83-09301_exp._5.pdf`,
   },
   {
     id: "d-29",
@@ -1272,6 +2619,7 @@ export const documents: Document[] = [
       en: "Letter from West German Foreign Minister Hans-Dietrich Genscher to Spanish Minister Pérez-Llorca expressing satisfaction at the crisis resolution",
     },
     chapters: ["internacional"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/exteriores/AGA-83-09301/D.29._AGA-83-09301_exp._5.pdf`,
   },
   {
     id: "d-30",
@@ -1287,6 +2635,7 @@ export const documents: Document[] = [
       en: "Additional diplomatic exchanges with European governments after 23-F",
     },
     chapters: ["internacional"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/exteriores/AGA-83-09301/D.30._AGA-83-09301_exp._5.pdf`,
   },
   {
     id: "d-31",
@@ -1302,5 +2651,6 @@ export const documents: Document[] = [
       en: "Continuation of diplomatic exchanges with European governments",
     },
     chapters: ["internacional"],
+    url: `${MONCLOA_BASE}/consejodeministros/Documents/2026/desclasificacion-documentos-23F/exteriores/AGA-83-09301/D.31._AGA-83-09301_exp._5.pdf`,
   },
 ];

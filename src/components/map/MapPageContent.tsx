@@ -2,21 +2,17 @@
 
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import StampBadge from "@/components/ui/StampBadge";
 import DossierSection from "@/components/ui/DossierSection";
-import MapToggle from "@/components/map/MapToggle";
-import DossierMap from "@/components/map/DossierMap";
 import InteractiveMap from "@/components/map/InteractiveMap";
+import { Link } from "@/i18n/routing";
 import type { Location } from "@/content/data/locations";
 import { timelineEvents } from "@/content/data/timeline";
-
-type MapView = "illustrated" | "interactive";
 
 export default function MapPageContent() {
   const locale = useLocale();
   const t = useTranslations("map");
-  const [view, setView] = useState<MapView>("illustrated");
   const [selectedLocation, setSelectedLocation] =
     useState<Location | null>(null);
 
@@ -37,7 +33,6 @@ export default function MapPageContent() {
           </h1>
           <StampBadge type="desclasificado" size="sm" animated />
         </div>
-        <MapToggle view={view} onToggle={setView} />
       </div>
 
       {/* Map + Side Panel layout */}
@@ -45,35 +40,10 @@ export default function MapPageContent() {
         {/* Map area */}
         <div className="lg:col-span-2">
           <DossierSection tabLabel={t("tabLabel")}>
-            <AnimatePresence mode="wait">
-              {view === "illustrated" ? (
-                <motion.div
-                  key="illustrated"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <DossierMap
-                    selectedLocation={selectedLocation}
-                    onSelectLocation={setSelectedLocation}
-                  />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="interactive"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <InteractiveMap
-                    selectedLocation={selectedLocation}
-                    onSelectLocation={setSelectedLocation}
-                  />
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <InteractiveMap
+              selectedLocation={selectedLocation}
+              onSelectLocation={setSelectedLocation}
+            />
           </DossierSection>
         </div>
 
@@ -123,16 +93,24 @@ export default function MapPageContent() {
                           {relatedEvents.slice(0, 8).map((event) => (
                             <li
                               key={event.id}
-                              className="text-xs font-mono text-ink-700 dark:text-paper-300 
-                                border-b border-paper-200 dark:border-dark-600 pb-2 last:border-0"
+                              className="border-b border-paper-200 dark:border-dark-600 pb-2 last:border-0"
                             >
-                              <span className="text-classified-red font-bold">
-                                {event.time || event.datetime.split("T")[0]}
-                              </span>
-                              {" — "}
-                              {locale === "en"
-                                ? event.title.en
-                                : event.title.es}
+                              <Link
+                                href={`/cronologia#${event.id}`}
+                                className="group flex items-start gap-1.5 text-xs font-mono
+                                  text-ink-700 dark:text-paper-300
+                                  hover:text-classified-red dark:hover:text-classified-red
+                                  transition-colors"
+                              >
+                                <span className="text-classified-red font-bold flex-shrink-0">
+                                  {event.time || event.datetime.split("T")[0]}
+                                </span>
+                                <span className="group-hover:underline underline-offset-2">
+                                  {locale === "en"
+                                    ? event.title.en
+                                    : event.title.es}
+                                </span>
+                              </Link>
                             </li>
                           ))}
                           {relatedEvents.length > 8 && (

@@ -397,6 +397,8 @@ export default function DocumentosPageContent({
                 date={doc.date}
                 summary={doc.summary[lang]}
                 href={getDocHref(doc)}
+                documentUrl={doc.url}
+                viewOriginalLabel={t("viewOriginal")}
               />
             </motion.div>
           ))}

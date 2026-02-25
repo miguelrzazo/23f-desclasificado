@@ -51,7 +51,7 @@ export default function Timeline({ events, characters, locale }: TimelineProps) 
     const charIds = new Set(events.flatMap((e) => e.characters));
     return characters
       .filter((c) => charIds.has(c.id))
-      .map((c) => ({ id: c.id, name: c.name }))
+      .map((c) => ({ id: c.id, name: c.name, category: c.category }))
       .sort((a, b) => a.name.localeCompare(b.name));
   }, [events, characters]);
 

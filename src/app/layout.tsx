@@ -43,7 +43,7 @@ export const metadata: Metadata = {
       '154 documentos desclasificados por el Consejo de Ministros de España, 45 años después del intento de golpe de estado del 23 de febrero de 1981.',
     images: [
       {
-        url: '/og-image.svg',
+        url: '/og-image.png',
         width: 1200,
         height: 630,
         alt: '23-F Desclasificado',
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     title: '23-F Desclasificado',
     description:
       '154 documentos desclasificados sobre el golpe de estado del 23-F.',
-    images: ['/og-image.svg'],
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
