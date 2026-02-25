@@ -113,31 +113,12 @@ function SourcesSection() {
   return (
     <AnimatedSection>
       <DossierSection title={t("title")} tabLabel={t("tabLabel")}>
-        <div className="space-y-6 font-body text-[var(--text-secondary)] leading-relaxed">
-          {/* Primary sources */}
+        <div className="space-y-4 font-body text-[var(--text-secondary)] leading-relaxed">
           <div>
             <p className="font-mono text-xs uppercase tracking-wider text-[var(--text-primary)] mb-3">
               {t("primary")}
             </p>
-            <ul className="list-disc list-inside space-y-1.5 ml-2">
-              <li>{t("s1")}</li>
-              <li>{t("s2")}</li>
-              <li>{t("s3")}</li>
-              <li>{t("s4")}</li>
-            </ul>
-          </div>
-
-          {/* Secondary / bibliography */}
-          <div>
-            <p className="font-mono text-xs uppercase tracking-wider text-[var(--text-primary)] mb-3">
-              {t("secondary")}
-            </p>
-            <ul className="list-disc list-inside space-y-1.5 ml-2">
-              <li>{t("b1")}</li>
-              <li>{t("b2")}</li>
-              <li>{t("b3")}</li>
-              <li>{t("b4")}</li>
-            </ul>
+            <p className="text-sm">{t("s1")}</p>
           </div>
         </div>
       </DossierSection>
