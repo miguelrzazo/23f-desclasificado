@@ -296,7 +296,8 @@
       "concept": "Project concept, research, and development",
       "tech": "Technology:",
       "techStack": "Next.js, TypeScript, Tailwind CSS",
-      "openSource": "Open-source project — contributions are welcome."
+      "openSource": "Open-source project — contributions are welcome.",
+      "support": "If you find this project useful, you can support it with a coffee."
     }
   }
 }
