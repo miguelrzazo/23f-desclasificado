@@ -590,7 +590,16 @@ export const characters: Character[] = [
       es: "Decisiones clave: 1) Negar la entrada a Armada en Zarzuela (cortó la cobertura institucional del golpe). 2) Llamar uno a uno a los Capitanes Generales. 3) Ordenar la emisión del mensaje televisado. Sufrió una campaña de desinformación para implicarlo: presunta reunión con Armada en Baqueira, forzar dimisión de Suárez, autorizar a Armada. Desmentido sistemáticamente. Respondió personalmente a Reagan, Elizabeth II, Castro, Presidente alemán.",
       en: "Key decisions: 1) Deny Armada entry to Zarzuela (cut off the coup's institutional cover). 2) Call each Captain General one by one. 3) Order the broadcast of the televised message. Suffered a disinformation campaign to implicate him: alleged meeting with Armada in Baqueira, forcing Suárez's resignation, authorizing Armada. Systematically denied. Personally responded to Reagan, Elizabeth II, Castro, German President.",
     },
-    quotes: [],
+    quotes: [
+      {
+        text: "Juro que ni abdicaré la Corona, ni abandonaré España. Quien se subleve, está dispuesto a provocar y será responsable de ello, una nueva guerra civil",
+        source: "Doc_20_R.txt",
+        context: {
+          es: "A Milans del Bosch por teléfono, 23 de febrero de 1981",
+          en: "To Milans del Bosch by phone, February 23, 1981",
+        },
+      },
+    ],
     connections: [
       {
         targetId: "fernandez-campo",

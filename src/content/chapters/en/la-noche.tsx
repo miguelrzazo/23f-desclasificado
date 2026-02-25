@@ -182,15 +182,31 @@ export default function LaNocheEN() {
           General Juste, commander of the Brunete Armored Division, insistently
           asks whether Armada is at Zarzuela. When told no, he responds with
           that revealing phrase. This suggests the DAC was prepared to move if
-          Armada had been with the King \u2014 that is, if the King had provided
+          Armada had been with the King — that is, if the King had provided
           institutional cover for the coup.
         </p>
+
+        <h3>The King&apos;s calls to the Captain Generals</h3>
+
+        <p>
+          The King personally called each Captain General, one by one. Milans
+          del Bosch said he was &ldquo;at the King&apos;s orders&rdquo; but asked
+          him to speak with Armada. The King ordered all troops back to barracks.
+          In that call, the King made his position unmistakable:
+        </p>
+
+        <QuoteBlock
+          text="Juro que ni abdicaré la Corona, ni abandonaré España. Quien se subleve, está dispuesto a provocar y será responsable de ello, una nueva guerra civil"
+          source="Juan Carlos I — Doc_20_R.txt"
+          context="To Milans del Bosch by phone, February 23, 1981, ~19:00h. Translation: 'I swear I will neither abdicate the Crown nor abandon Spain. Whoever rebels is prepared to provoke and will be responsible for a new civil war.'"
+          highlighted={["ni abdicaré la Corona, ni abandonaré España", "nueva guerra civil"]}
+        />
 
         <h3>Armada at Congress: &ldquo;I have failed&rdquo;</h3>
 
         <p>
           General Aramburu (Director General of the Civil Guard) escorts Armada
-          to the door of Congress. An officer receives him \u2014 not Tejero.
+          to the door of Congress. An officer receives him — not Tejero.
           Armada proposes a coalition government. Upon leaving, he says:
         </p>
 

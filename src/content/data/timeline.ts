@@ -388,6 +388,10 @@ export const timelineEvents: TimelineEvent[] = [
     characters: ["rey-juan-carlos", "milans"],
     source: "Doc_20_R.txt",
     category: "noche",
+    quote: {
+      text: "Juro que ni abdicaré la Corona, ni abandonaré España. Quien se subleve, está dispuesto a provocar y será responsable de ello, una nueva guerra civil",
+      source: "Doc_20_R.txt",
+    },
   },
   {
     id: "decision-mensaje-tv",

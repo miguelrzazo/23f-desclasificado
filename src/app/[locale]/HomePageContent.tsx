@@ -7,6 +7,7 @@ import { Link } from "@/i18n/routing";
 import StampBadge from "@/components/ui/StampBadge";
 import CensoredPhoto from "@/components/ui/CensoredPhoto";
 import RedTape from "@/components/ui/RedTape";
+import DocumentScatter from "@/components/ui/DocumentScatter";
 
 // ---------------------------------------------------------------------------
 // Data
@@ -468,6 +469,183 @@ function CharactersSection() {
 
 // ---------------------------------------------------------------------------
 
+function KingQuoteSection() {
+  const ref = useRef<HTMLElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  return (
+    <section ref={ref} className="py-16 md:py-24 px-4 overflow-hidden">
+      <motion.div
+        className="max-w-3xl mx-auto relative"
+        initial={{ opacity: 0, y: 30 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      >
+        {/* Paper background with crease effect */}
+        <div className="paper-texture paper-crease paper-crease--double rounded-sm border border-[var(--border)] p-8 md:p-12 relative overflow-hidden coffee-stain">
+          {/* Faint RESERVADO stamp watermark */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
+            <span
+              className="font-mono font-black text-[7rem] md:text-[10rem] uppercase tracking-widest text-classified-red/[0.04] dark:text-classified-brightred/[0.04] select-none rotate-[-20deg] whitespace-nowrap"
+            >
+              RESERVADO
+            </span>
+          </div>
+
+          {/* King's photo — small, left-floated */}
+          <div className="flex items-start gap-6 md:gap-8 relative z-10">
+            <div className="flex-shrink-0 hidden sm:block">
+              <CensoredPhoto
+                name="Juan Carlos I"
+                category="leal"
+                image="/images/characters/rey-juan-carlos.jpg"
+                size="sm"
+              />
+            </div>
+
+            <div className="flex-1 min-w-0">
+              {/* Source label */}
+              <p className="font-mono text-[0.6rem] uppercase tracking-widest text-[var(--text-secondary)] mb-3">
+                Doc_20_R.txt — 23 Feb 1981, 19:00h — Palacio de La Zarzuela
+              </p>
+
+              {/* The quote */}
+              <blockquote className="quote-block py-4 pr-2">
+                <span className="quote-block__marks" aria-hidden="true">&ldquo;</span>
+                <p className="font-body text-lg md:text-xl italic leading-relaxed text-[var(--text-primary)] mt-4">
+                  Juro que ni abdicaré la Corona, ni abandonaré España. Quien se subleve, está{" "}
+                  <span className="paper-highlight">dispuesto a provocar y será responsable</span>{" "}
+                  de ello, una{" "}
+                  <span className="paper-highlight">nueva guerra civil</span>
+                </p>
+              </blockquote>
+
+              {/* Attribution */}
+              <footer className="mt-4 flex flex-col gap-1">
+                <cite className="font-mono text-xs not-italic font-bold text-[var(--text-primary)] tracking-wide">
+                  — Juan Carlos I
+                </cite>
+                <span className="text-xs text-[var(--text-secondary)] italic">
+                  A Milans del Bosch por teléfono, con los tanques en las calles de Valencia
+                </span>
+              </footer>
+
+              {/* Link to timeline event */}
+              <div className="mt-5">
+                <Link
+                  href="/cronologia/rey-milans-telefono"
+                  className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-classified-red dark:text-classified-brightred hover:underline underline-offset-4 transition-colors"
+                >
+                  Ver en la cronología
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    </section>
+  );
+}
+
+// ---------------------------------------------------------------------------
+
+const SCATTER_DOCS = [
+  {
+    src: "/images/documents/doc-exteriores-01.jpg",
+    alt: "Despacho diplomático USICA — Comentarios de Haig sobre España, 10 Mar 1981",
+    caption: "USICA 10601 — Haig Comments on Spain — 10 MAR 81",
+    tilt: "left" as const,
+    width: 200,
+    height: 270,
+  },
+  {
+    src: "/images/documents/doc-exteriores-02.jpg",
+    alt: "Despacho diplomático AGMAE R39017 — Reacciones internacionales al 23-F",
+    caption: "AGMAE R39017 — Exp. 4 — Feb 1981",
+    tilt: "right" as const,
+    width: 210,
+    height: 280,
+  },
+  {
+    src: "/images/documents/doc-exteriores-03.jpg",
+    alt: "Cable diplomático — Solidaridad internacional con la democracia española",
+    caption: "AGMAE R39017 — Exp. 4",
+    tilt: "slight" as const,
+    width: 195,
+    height: 260,
+  },
+  {
+    src: "/images/documents/doc-haig-01.jpg",
+    alt: "Nota diplomática — Controversia Haig sobre el golpe de Estado",
+    caption: "AGMAE R40201 — Exp. 215",
+    tilt: "neg" as const,
+    width: 205,
+    height: 272,
+  },
+  {
+    src: "/images/documents/doc-exteriores-04.jpg",
+    alt: "Documento desclasificado — Ministerio de Asuntos Exteriores, 1981",
+    caption: "AGMAE R39017 — Exp. 4",
+    tilt: "left" as const,
+    width: 198,
+    height: 265,
+  },
+];
+
+function DocumentsScatterSection() {
+  const ref = useRef<HTMLElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-100px" });
+
+  return (
+    <section ref={ref} className="py-12 md:py-20 px-4 overflow-hidden">
+      <div className="max-w-5xl mx-auto">
+        {/* Section header */}
+        <motion.div
+          className="text-center mb-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
+        >
+          <p className="font-mono text-[0.65rem] uppercase tracking-widest text-[var(--text-secondary)] mb-2">
+            Ministerio de Asuntos Exteriores — Desclasificados Feb 2026
+          </p>
+          <h2 className="font-serif text-xl md:text-2xl font-bold text-[var(--text-primary)]">
+            Los documentos, tal como llegaron
+          </h2>
+          <p className="font-body text-sm text-[var(--text-secondary)] mt-2 max-w-md mx-auto">
+            Cables diplomáticos originales. Máquina de escribir, sellos de enrutamiento, marcas de clasificación.
+          </p>
+        </motion.div>
+
+        {/* Scattered documents */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.2 }}
+        >
+          <DocumentScatter documents={SCATTER_DOCS} />
+        </motion.div>
+
+        {/* Source attribution */}
+        <motion.p
+          className="text-center font-mono text-[0.55rem] uppercase tracking-widest text-[var(--text-secondary)] mt-6 opacity-60"
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 0.6 } : {}}
+          transition={{ delay: 0.5 }}
+        >
+          Fuente: Ministerio de Asuntos Exteriores — Archivo General, Series AGMAE R39017 y R40201 — dominio público
+        </motion.p>
+      </div>
+    </section>
+  );
+}
+
+// ---------------------------------------------------------------------------
+
 function MapCTASection() {
   const t = useTranslations("home");
   const ref = useRef<HTMLElement>(null);
@@ -540,8 +718,10 @@ export function HomePageContent() {
     <>
       <HeroSection />
       <ChaptersSection />
+      <KingQuoteSection />
       <TimelineSection />
       <CharactersSection />
+      <DocumentsScatterSection />
       <MapCTASection />
     </>
   );

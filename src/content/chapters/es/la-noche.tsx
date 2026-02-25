@@ -220,6 +220,13 @@ export default function LaNocheES() {
           las tropas.
         </p>
 
+        <QuoteBlock
+          text="Juro que ni abdicaré la Corona, ni abandonaré España. Quien se subleve, está dispuesto a provocar y será responsable de ello, una nueva guerra civil"
+          source="Juan Carlos I — Doc_20_R.txt"
+          context="A Milans del Bosch por teléfono, 23 de febrero de 1981, ~19:00h"
+          highlighted={["ni abdicaré la Corona, ni abandonaré España", "nueva guerra civil"]}
+        />
+
         <h3>TVE ocupada — el mensaje retrasado</h3>
 
         <p>
