@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 32" width="600" height="32" preserveAspectRatio="none">
+  <defs>
+    <!-- Slight wrinkle/texture on the tape surface -->
+    <filter id="tape-texture">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02 0.15" numOctaves="3" seed="4" result="wrinkles"/>
+      <feDisplacementMap in="SourceGraphic" in2="wrinkles" scale="2" xChannelSelector="R" yChannelSelector="G" result="warped"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="9" result="surfaceNoise"/>
+      <feColorMatrix type="saturate" values="0" in="surfaceNoise" result="noiseBW"/>
+      <feComponentTransfer in="noiseBW" result="noiseAlpha">
+        <feFuncA type="linear" slope="0.08" intercept="0"/>
+      </feComponentTransfer>
+      <feBlend in="warped" in2="noiseAlpha" mode="multiply"/>
+    </filter>
+    <!-- Rough torn edges -->
+    <filter id="torn-edge">
+      <feTurbulence type="turbulence" baseFrequency="0.06" numOctaves="4" seed="22" result="turb"/>
+      <feDisplacementMap in="SourceGraphic" in2="turb" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <!-- Semi-transparent red gradient for tape realism -->
+    <linearGradient id="tapeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D42B2B" stop-opacity="0.92"/>
+      <stop offset="15%" stop-color="#C41E1E" stop-opacity="0.88"/>
+      <stop offset="50%" stop-color="#B91C1C" stop-opacity="0.85"/>
+      <stop offset="85%" stop-color="#C41E1E" stop-opacity="0.88"/>
+      <stop offset="100%" stop-color="#A31818" stop-opacity="0.92"/>
+    </linearGradient>
+  </defs>
+  <!-- Main tape body -->
+  <rect x="0" y="0" width="600" height="32" rx="0" ry="0"
+        fill="url(#tapeGrad)" filter="url(#tape-texture)"/>
+  <!-- Subtle highlight streak for glossy tape look -->
+  <rect x="0" y="6" width="600" height="3"
+        fill="white" opacity="0.08" filter="url(#torn-edge)"/>
+  <!-- Top and bottom rough edges -->
+  <rect x="0" y="-1" width="600" height="3"
+        fill="none" stroke="#8B1414" stroke-width="0.5"
+        filter="url(#torn-edge)" opacity="0.3"/>
+  <rect x="0" y="30" width="600" height="3"
+        fill="none" stroke="#8B1414" stroke-width="0.5"
+        filter="url(#torn-edge)" opacity="0.3"/>
+</svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 40" width="400" height="40" preserveAspectRatio="none">
+  <defs>
+    <!-- Marker/ink bleed effect for rough edges -->
+    <filter id="marker-bleed" x="-2%" y="-10%" width="104%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" seed="31" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" result="displaced"/>
+      <!-- Slight feather on edges -->
+      <feGaussianBlur in="displaced" stdDeviation="0.5" result="softened"/>
+    </filter>
+    <!-- Ink texture overlay -->
+    <filter id="ink-texture" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="3" seed="42" result="grain"/>
+      <feColorMatrix type="saturate" values="0" in="grain" result="grainBW"/>
+      <feComponentTransfer in="grainBW" result="grainAlpha">
+        <feFuncA type="linear" slope="0.06" intercept="0"/>
+      </feComponentTransfer>
+      <feBlend in="SourceGraphic" in2="grainAlpha" mode="screen"/>
+    </filter>
+  </defs>
+  <!-- Main censorship bar -->
+  <rect x="0" y="2" width="400" height="36" rx="1" ry="1"
+        fill="#1A1A1A" filter="url(#marker-bleed)" opacity="0.95"/>
+  <!-- Subtle ink texture on top for realism -->
+  <rect x="0" y="2" width="400" height="36" rx="1" ry="1"
+        fill="#111111" filter="url(#ink-texture)" opacity="0.15"/>
+  <!-- Slight gloss streak like a thick marker -->
+  <rect x="10" y="8" width="380" height="4"
+        fill="#2A2A2A" opacity="0.2" rx="2"/>
+</svg>

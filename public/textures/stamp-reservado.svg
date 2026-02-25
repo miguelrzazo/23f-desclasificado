@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 110" width="280" height="110">
+  <defs>
+    <filter id="stamp-worn-r" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="4" seed="14" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" result="displaced"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" seed="23" result="grain"/>
+      <feColorMatrix type="saturate" values="0" in="grain" result="grainBW"/>
+      <feComponentTransfer in="grainBW" result="grainMask">
+        <feFuncA type="linear" slope="0.38" intercept="0.32"/>
+      </feComponentTransfer>
+      <feComposite operator="in" in="displaced" in2="grainMask" result="worn"/>
+    </filter>
+    <filter id="rough-edge-r">
+      <feTurbulence type="turbulence" baseFrequency="0.032" numOctaves="5" seed="17" result="turbulence"/>
+      <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="4.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+  <g transform="rotate(-1.8, 140, 55)">
+    <!-- Outer border — slightly rounded -->
+    <rect x="7" y="7" width="266" height="96" rx="4" ry="4"
+          fill="none" stroke="#C41E1E" stroke-width="4.5"
+          filter="url(#rough-edge-r)" opacity="0.8"/>
+    <!-- Inner border -->
+    <rect x="15" y="15" width="250" height="80" rx="2" ry="2"
+          fill="none" stroke="#C41E1E" stroke-width="2"
+          filter="url(#rough-edge-r)" opacity="0.65"/>
+    <!-- Main text -->
+    <text x="140" y="48" text-anchor="middle" dominant-baseline="central"
+          font-family="'Arial Narrow', 'Helvetica Neue', Helvetica, sans-serif"
+          font-weight="900" font-size="42" letter-spacing="8"
+          fill="#C41E1E" filter="url(#stamp-worn-r)" opacity="0.8">
+      RESERVADO
+    </text>
+    <!-- Sub text -->
+    <text x="140" y="78" text-anchor="middle" dominant-baseline="central"
+          font-family="'Courier New', monospace"
+          font-weight="700" font-size="10" letter-spacing="2"
+          fill="#C41E1E" filter="url(#stamp-worn-r)" opacity="0.5">
+      ACCESO RESTRINGIDO
+    </text>
+  </g>
+</svg>

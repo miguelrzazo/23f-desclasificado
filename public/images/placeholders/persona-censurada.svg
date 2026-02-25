@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" width="200" height="240">
+  <defs>
+    <!-- Subtle paper background texture -->
+    <filter id="paper-bg">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" seed="3" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="mono"/>
+      <feComponentTransfer in="mono" result="faint">
+        <feFuncA type="linear" slope="0.06" intercept="0"/>
+      </feComponentTransfer>
+      <feBlend in="SourceGraphic" in2="faint" mode="multiply"/>
+    </filter>
+    <!-- Redaction bar filter -->
+    <filter id="censor-bar-filter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" seed="50" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <!-- Clip for head/shoulders shape -->
+    <clipPath id="photo-frame">
+      <rect x="10" y="10" width="180" height="220" rx="4" ry="4"/>
+    </clipPath>
+  </defs>
+  <!-- Photo background -->
+  <rect x="0" y="0" width="200" height="240" rx="4" ry="4" fill="#D4CFC4" filter="url(#paper-bg)"/>
+  <rect x="10" y="10" width="180" height="220" rx="3" ry="3" fill="#B8B2A4"/>
+  <!-- Head silhouette -->
+  <g clip-path="url(#photo-frame)" opacity="0.7">
+    <!-- Shoulders -->
+    <ellipse cx="100" cy="260" rx="90" ry="60" fill="#6B6560"/>
+    <!-- Neck -->
+    <rect x="82" y="160" width="36" height="40" rx="8" fill="#6B6560"/>
+    <!-- Head -->
+    <ellipse cx="100" cy="120" rx="42" ry="52" fill="#6B6560"/>
+    <!-- Ear left -->
+    <ellipse cx="56" cy="125" rx="8" ry="12" fill="#5E5954"/>
+    <!-- Ear right -->
+    <ellipse cx="144" cy="125" rx="8" ry="12" fill="#5E5954"/>
+  </g>
+  <!-- CENSORSHIP BAR across the eyes -->
+  <rect x="4" y="100" width="192" height="32" rx="1" ry="1"
+        fill="#1A1A1A" filter="url(#censor-bar-filter)" opacity="0.94"/>
+  <!-- Slight marker gloss on censor bar -->
+  <rect x="12" y="108" width="176" height="5"
+        fill="#2A2A2A" opacity="0.2" rx="2"/>
+  <!-- Thin border around the photo -->
+  <rect x="10" y="10" width="180" height="220" rx="3" ry="3"
+        fill="none" stroke="#8A8479" stroke-width="1.5" opacity="0.5"/>
+  <!-- Corner marks like a filed photo -->
+  <line x1="10" y1="30" x2="10" y2="10" stroke="#7A756C" stroke-width="2" opacity="0.4"/>
+  <line x1="10" y1="10" x2="30" y2="10" stroke="#7A756C" stroke-width="2" opacity="0.4"/>
+  <line x1="170" y1="10" x2="190" y2="10" stroke="#7A756C" stroke-width="2" opacity="0.4"/>
+  <line x1="190" y1="10" x2="190" y2="30" stroke="#7A756C" stroke-width="2" opacity="0.4"/>
+  <line x1="190" y1="210" x2="190" y2="230" stroke="#7A756C" stroke-width="2" opacity="0.4"/>
+  <line x1="190" y1="230" x2="170" y2="230" stroke="#7A756C" stroke-width="2" opacity="0.4"/>
+  <line x1="30" y1="230" x2="10" y2="230" stroke="#7A756C" stroke-width="2" opacity="0.4"/>
+  <line x1="10" y1="230" x2="10" y2="210" stroke="#7A756C" stroke-width="2" opacity="0.4"/>
+</svg>
