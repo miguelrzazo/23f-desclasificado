@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <filter id="sketch">
+      <feTurbulence type="turbulence" baseFrequency="0.03" numOctaves="3" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+
+  <!-- Spain mainland outline - simplified hand-drawn style -->
+  <path
+    d="M 195 85
+       C 200 83, 220 82, 240 80
+       C 260 78, 285 75, 310 72
+       C 335 69, 355 68, 380 72
+       C 405 76, 430 82, 445 86
+       C 460 90, 475 88, 490 85
+       C 510 82, 530 84, 545 90
+       C 560 96, 572 100, 580 108
+       C 590 118, 598 130, 603 145
+       C 608 160, 612 178, 618 195
+       C 624 212, 628 228, 630 245
+       C 632 262, 630 278, 625 295
+       C 620 310, 615 318, 610 325
+       C 600 340, 585 355, 568 365
+       C 555 372, 540 375, 525 380
+       C 510 385, 495 388, 480 392
+       C 460 398, 440 405, 418 412
+       C 395 420, 370 430, 350 438
+       C 330 446, 310 452, 290 455
+       C 270 458, 248 460, 228 458
+       C 215 456, 200 452, 185 445
+       C 172 438, 160 428, 148 415
+       C 138 405, 132 395, 128 382
+       C 122 365, 118 348, 115 330
+       C 112 312, 108 292, 105 272
+       C 102 250, 98 228, 95 208
+       C 92 185, 90 165, 92 148
+       C 94 130, 100 118, 110 108
+       C 120 100, 135 95, 150 92
+       C 165 89, 180 87, 195 85
+       Z"
+    fill="#F5F0E8"
+    stroke="#1A1A1A"
+    stroke-width="2.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    filter="url(#sketch)"
+  />
+
+  <!-- Portugal outline hint -->
+  <path
+    d="M 95 208
+       C 88 218, 72 225, 62 240
+       C 52 258, 48 278, 50 298
+       C 52 318, 55 338, 62 355
+       C 68 370, 78 385, 92 398
+       C 108 408, 120 415, 128 382"
+    fill="none"
+    stroke="#1A1A1A"
+    stroke-width="1.5"
+    stroke-dasharray="6 4"
+    stroke-linecap="round"
+    opacity="0.4"
+  />
+
+  <!-- Balearic Islands -->
+  <ellipse cx="660" cy="310" rx="22" ry="10" fill="#F5F0E8" stroke="#1A1A1A" stroke-width="2" transform="rotate(-10, 660, 310)"/>
+  <ellipse cx="695" cy="305" rx="14" ry="7" fill="#F5F0E8" stroke="#1A1A1A" stroke-width="2" transform="rotate(-5, 695, 305)"/>
+
+  <!-- Canary Islands (inset box) -->
+  <g transform="translate(80, 530)">
+    <rect x="0" y="0" width="100" height="50" fill="none" stroke="#1A1A1A" stroke-width="1" stroke-dasharray="4 3" rx="3" opacity="0.5"/>
+    <ellipse cx="25" cy="25" rx="12" ry="8" fill="#F5F0E8" stroke="#1A1A1A" stroke-width="1.5"/>
+    <ellipse cx="55" cy="22" rx="15" ry="9" fill="#F5F0E8" stroke="#1A1A1A" stroke-width="1.5"/>
+    <ellipse cx="80" cy="28" rx="10" ry="6" fill="#F5F0E8" stroke="#1A1A1A" stroke-width="1.5"/>
+  </g>
+</svg>
