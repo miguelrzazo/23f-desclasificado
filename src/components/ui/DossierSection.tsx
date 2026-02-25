@@ -4,7 +4,7 @@ import StampBadge from "./StampBadge";
 
 interface DossierSectionProps {
   title?: string;
-  stamp?: "desclasificado" | "secreto" | "reservado";
+  stamp?: "desclasificado" | "secreto" | "reservado" | "confidencial";
   tabLabel?: string;
   children: React.ReactNode;
   className?: string;
