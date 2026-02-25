@@ -192,6 +192,9 @@
   font-weight: 700;
   text-align: center;
   z-index: 1;
+  overflow: hidden;
+  word-break: break-word;
+  line-height: 1.2;
 }
 
 .censored-photo__category--conspirador {

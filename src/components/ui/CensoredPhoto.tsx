@@ -42,17 +42,18 @@ export default function CensoredPhoto({
   return (
     <figure className={`inline-flex flex-col items-center gap-2 ${className}`}>
       <div
-        className={`censored-photo ${sizeClass} rounded overflow-hidden`}
+        className={`censored-photo ${sizeClass} rounded overflow-hidden relative`}
         aria-label={`Foto de ${name}`}
       >
         {image ? (
           /* Real photo with grayscale + sepia treatment */
           <Image
             src={image}
-            alt={name}
+            alt={`${name} — Wikimedia Commons`}
+            title="Fuente: Wikimedia Commons"
             width={px}
             height={Math.round(px * 1.3)}
-            className="absolute inset-0 w-full h-full object-cover grayscale sepia-[0.3] contrast-[1.1]"
+            className="w-full h-full object-cover grayscale sepia-[0.3] contrast-[1.1]"
             sizes={`${px}px`}
           />
         ) : (
@@ -60,7 +61,7 @@ export default function CensoredPhoto({
           <div className="censored-photo__silhouette" aria-hidden="true" />
         )}
 
-        {/* Category badge */}
+        {/* Category badge — inside the photo so it doesn't flip */}
         <div
           className={`censored-photo__category censored-photo__category--${category}`}
         >
