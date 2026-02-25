@@ -199,5 +199,89 @@
     "minuteByMinute": "Minuto a minuto",
     "nocheTitle": "La Noche del 23-F — Minuto a Minuto",
     "nocheDescription": "Las 18 horas que cambiaron España: desde el asalto al Congreso hasta la rendición de Tejero, rastreadas en múltiples escenarios simultáneos."
+  },
+  "documents": {
+    "title": "Corpus Documental",
+    "subtitle": "Documentos desclasificados por el Consejo de Ministros: informes de inteligencia, interceptaciones telefónicas, télex diplomáticos y actas judiciales del 23-F",
+    "statsLabel": "Estadísticas del corpus",
+    "totalDocuments": "documentos indexados",
+    "byMinistry": "Por ministerio",
+    "classification": {
+      "secreto": "Secreto",
+      "reservado": "Reservado",
+      "confidencial": "Confidencial",
+      "sin-clasificar": "Sin Clasificar"
+    },
+    "filtersLabel": "Filtros de búsqueda",
+    "filterMinistry": "Filtrar por ministerio",
+    "filterClassification": "Filtrar por clasificación",
+    "searchLabel": "Buscar",
+    "searchPlaceholder": "Buscar por título o contenido...",
+    "clearFilters": "Limpiar filtros",
+    "showingCount": "Mostrando {count} de {total} documentos",
+    "noResults": "No se encontraron documentos con los filtros seleccionados."
+  },
+  "about": {
+    "title": "Acerca de este proyecto",
+    "subtitle": "Contexto, metodología y fuentes detrás de 23-F Desclasificado",
+    "documents": {
+      "tabLabel": "SEC. I",
+      "title": "Sobre estos documentos",
+      "p1": "El 25 de febrero de 2025, el Consejo de Ministros de España aprobó la desclasificación de documentos relacionados con el intento de golpe de Estado del 23 de febrero de 1981.",
+      "p2": "En total, 154 documentos procedentes de cuatro ministerios —Defensa, Interior, Exteriores y el BOE— fueron desclasificados tras permanecer clasificados como «Secreto» y «Reservado» durante 44 años.",
+      "p3": "Esta desclasificación representa el mayor lote individual de documentos sobre un golpe de Estado desclasificados en la historia de España."
+    },
+    "order": {
+      "tabLabel": "SEC. II",
+      "title": "La Orden de Desclasificación",
+      "p1": "Un Real Decreto aprobado por el Consejo de Ministros ordenó la desclasificación de los documentos.",
+      "p2": "La orden fue publicada en el Boletín Oficial del Estado (BOE) y abarca documentos del CESID/CNI, Ministerio de Defensa, Ministerio del Interior y Ministerio de Asuntos Exteriores.",
+      "p3": "El texto íntegro de la publicación en el BOE se recoge en el Doc_1_boe.txt, el primer documento de este archivo.",
+      "quote": "Se acuerda la desclasificación de los documentos e informaciones clasificados relativos al intento de golpe de Estado del 23 de febrero de 1981.",
+      "quoteSource": "Doc_1_boe.txt — Boletín Oficial del Estado, 25 de febrero de 2025",
+      "quoteContext": "Acuerdo del Consejo de Ministros por el que se desclasifican los documentos del 23-F"
+    },
+    "methodology": {
+      "tabLabel": "SEC. III",
+      "title": "Metodología",
+      "p1": "Los PDFs originales fueron obtenidos de los archivos gubernamentales tras la publicación de la orden de desclasificación.",
+      "steps": {
+        "title": "Proceso de tratamiento:",
+        "s1": "Procesamiento OCR con Python (pytesseract) para la extracción de texto",
+        "s2": "154 documentos procesados y catalogados individualmente",
+        "s3": "Cruce con los registros públicos del juicio (Causa 2/81)",
+        "s4": "Síntesis en capítulos temáticos con atribución documental completa",
+        "s5": "Análisis y traducción asistidos por inteligencia artificial"
+      }
+    },
+    "sources": {
+      "tabLabel": "SEC. IV",
+      "title": "Fuentes",
+      "primary": "Fuentes primarias:",
+      "s1": "Orden de desclasificación del Consejo de Ministros (25 de febrero de 2025)",
+      "s2": "Archivo General de la Administración",
+      "s3": "Tribunal Supremo — Causa 2/81",
+      "s4": "Centro Nacional de Inteligencia (antes CESID)",
+      "secondary": "Bibliografía de referencia:",
+      "b1": "Santos Juliá — Historiador de la Transición española",
+      "b2": "Javier Cercas — «Anatomía de un instante» (2009)",
+      "b3": "Paul Preston — Historiador de la España contemporánea",
+      "b4": "Charles Powell — Especialista en la Transición y la monarquía"
+    },
+    "legal": {
+      "tabLabel": "SEC. V",
+      "title": "Nota Legal",
+      "p1": "Los documentos originales son propiedad del Estado español.",
+      "p2": "Este sitio web es un proyecto periodístico y educativo. No se ha accedido a información clasificada fuera del ámbito de la orden de desclasificación.",
+      "p3": "Los extractos documentales se utilizan con fines de investigación e interés público, al amparo de la legislación española sobre propiedad intelectual y del derecho a la información."
+    },
+    "credits": {
+      "tabLabel": "SEC. VI",
+      "title": "Créditos",
+      "concept": "Concepto, investigación y desarrollo del proyecto",
+      "tech": "Tecnología:",
+      "techStack": "Next.js, TypeScript, Tailwind CSS",
+      "openSource": "Proyecto de código abierto — las contribuciones son bienvenidas."
+    }
   }
 }

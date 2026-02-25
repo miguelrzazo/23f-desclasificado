@@ -199,5 +199,89 @@
     "minuteByMinute": "Minute by minute",
     "nocheTitle": "The Night of 23-F — Minute by Minute",
     "nocheDescription": "The 18 hours that changed Spain: from the assault on Congress to Tejero's surrender, tracked across multiple simultaneous locations."
+  },
+  "documents": {
+    "title": "Document Corpus",
+    "subtitle": "Documents declassified by the Council of Ministers: intelligence reports, phone intercepts, diplomatic telexes, and judicial records of 23-F",
+    "statsLabel": "Corpus statistics",
+    "totalDocuments": "indexed documents",
+    "byMinistry": "By ministry",
+    "classification": {
+      "secreto": "Top Secret",
+      "reservado": "Reserved",
+      "confidencial": "Confidential",
+      "sin-clasificar": "Unclassified"
+    },
+    "filtersLabel": "Search filters",
+    "filterMinistry": "Filter by ministry",
+    "filterClassification": "Filter by classification",
+    "searchLabel": "Search",
+    "searchPlaceholder": "Search by title or content...",
+    "clearFilters": "Clear filters",
+    "showingCount": "Showing {count} of {total} documents",
+    "noResults": "No documents found with the selected filters."
+  },
+  "about": {
+    "title": "About this project",
+    "subtitle": "Context, methodology, and sources behind 23-F Declassified",
+    "documents": {
+      "tabLabel": "SEC. I",
+      "title": "About these documents",
+      "p1": "On February 25, 2025, the Spanish Council of Ministers approved the declassification of documents related to the attempted coup d'etat of February 23, 1981.",
+      "p2": "A total of 154 documents from four ministries — Defense, Interior, Foreign Affairs, and the BOE — were declassified after being classified as \"Secret\" and \"Reserved\" for 44 years.",
+      "p3": "This declassification represents the largest single batch of coup-related documents ever declassified in Spanish history."
+    },
+    "order": {
+      "tabLabel": "SEC. II",
+      "title": "The Declassification Order",
+      "p1": "A Royal Decree approved by the Council of Ministers ordered the declassification of the documents.",
+      "p2": "The order was published in the Boletin Oficial del Estado (BOE) and covers documents from CESID/CNI, the Ministry of Defense, the Ministry of the Interior, and the Ministry of Foreign Affairs.",
+      "p3": "The full text of the BOE publication is contained in Doc_1_boe.txt, the first document in this archive.",
+      "quote": "The declassification of classified documents and information related to the attempted coup d'etat of February 23, 1981 is hereby agreed.",
+      "quoteSource": "Doc_1_boe.txt — Boletin Oficial del Estado, February 25, 2025",
+      "quoteContext": "Council of Ministers agreement to declassify 23-F documents"
+    },
+    "methodology": {
+      "tabLabel": "SEC. III",
+      "title": "Methodology",
+      "p1": "Original PDFs were obtained from government archives following the publication of the declassification order.",
+      "steps": {
+        "title": "Processing pipeline:",
+        "s1": "OCR processing with Python (pytesseract) for text extraction",
+        "s2": "154 documents individually processed and catalogued",
+        "s3": "Cross-referenced with public trial records (Case 2/81)",
+        "s4": "Synthesized into thematic chapters with full document attribution",
+        "s5": "AI-assisted analysis and translation"
+      }
+    },
+    "sources": {
+      "tabLabel": "SEC. IV",
+      "title": "Sources",
+      "primary": "Primary sources:",
+      "s1": "Council of Ministers declassification order (February 25, 2025)",
+      "s2": "Archivo General de la Administracion (General Archive of the Administration)",
+      "s3": "Supreme Court — Case 2/81 (Causa 2/81)",
+      "s4": "Centro Nacional de Inteligencia (formerly CESID)",
+      "secondary": "Reference bibliography:",
+      "b1": "Santos Julia — Historian of the Spanish Transition",
+      "b2": "Javier Cercas — \"Anatomy of an Instant\" (Anatomia de un instante, 2009)",
+      "b3": "Paul Preston — Historian of contemporary Spain",
+      "b4": "Charles Powell — Specialist in the Transition and the monarchy"
+    },
+    "legal": {
+      "tabLabel": "SEC. V",
+      "title": "Legal Notice",
+      "p1": "Original documents are the property of the Spanish State.",
+      "p2": "This website is a journalistic and educational project. No classified information has been accessed outside the scope of the declassification order.",
+      "p3": "Document excerpts are used for research and public interest purposes under Spanish intellectual property law and the right to information."
+    },
+    "credits": {
+      "tabLabel": "SEC. VI",
+      "title": "Credits",
+      "concept": "Project concept, research, and development",
+      "tech": "Technology:",
+      "techStack": "Next.js, TypeScript, Tailwind CSS",
+      "openSource": "Open-source project — contributions are welcome."
+    }
   }
 }
