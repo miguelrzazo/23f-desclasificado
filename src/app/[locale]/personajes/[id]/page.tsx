@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
@@ -7,6 +8,22 @@ import CharacterProfile from "@/components/characters/CharacterProfile";
 type Props = {
   params: Promise<{ locale: string; id: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, id } = await params;
+  const character = characters.find((c) => c.id === id);
+  if (!character) return {};
+  const isEn = locale === "en";
+  const lang = isEn ? "en" : "es";
+  return {
+    title: character.name,
+    description: character.role[lang],
+    openGraph: {
+      title: `${character.name} — 23-F Desclasificado`,
+      description: character.role[lang],
+    },
+  };
+}
 
 export function generateStaticParams() {
   return characters.flatMap((char) =>

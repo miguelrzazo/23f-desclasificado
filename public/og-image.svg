@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <!-- Paper texture filter -->
+    <filter id="paper" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
+      <feBlend in="SourceGraphic" in2="grayNoise" mode="multiply" result="blend"/>
+      <feComponentTransfer in="blend">
+        <feFuncA type="linear" slope="1"/>
+      </feComponentTransfer>
+    </filter>
+    <!-- Stamp rotation -->
+    <filter id="stampShadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#1C1C1E"/>
+
+  <!-- Subtle paper texture overlay -->
+  <rect width="1200" height="630" fill="#2A2A2C" opacity="0.5" filter="url(#paper)"/>
+
+  <!-- Horizontal rule top -->
+  <line x1="100" y1="120" x2="1100" y2="120" stroke="#4A4A4C" stroke-width="0.5"/>
+
+  <!-- "DOCUMENTO" small label -->
+  <text x="600" y="170" font-family="Georgia, 'Times New Roman', serif" font-size="18" fill="#8E8E93" text-anchor="middle" letter-spacing="8">DOCUMENTO</text>
+
+  <!-- Main title "23-F" -->
+  <text x="600" y="330" font-family="Georgia, 'Times New Roman', serif" font-size="180" fill="#F5F0E8" text-anchor="middle" font-style="italic" letter-spacing="-4">23-F</text>
+
+  <!-- "DESCLASIFICADO" stamp -->
+  <g transform="translate(600, 420) rotate(-8)" filter="url(#stampShadow)">
+    <rect x="-250" y="-35" width="500" height="70" rx="4" fill="none" stroke="#C41E1E" stroke-width="4" opacity="0.85"/>
+    <text x="0" y="15" font-family="'Courier New', Courier, monospace" font-size="42" fill="#C41E1E" text-anchor="middle" font-weight="bold" letter-spacing="6" opacity="0.85">DESCLASIFICADO</text>
+  </g>
+
+  <!-- Subtitle -->
+  <text x="600" y="530" font-family="Georgia, 'Times New Roman', serif" font-size="24" fill="#A0A0A5" text-anchor="middle" letter-spacing="3">154 documentos secretos</text>
+
+  <!-- Horizontal rule bottom -->
+  <line x1="100" y1="570" x2="1100" y2="570" stroke="#4A4A4C" stroke-width="0.5"/>
+
+  <!-- Corner decorations -->
+  <path d="M40,40 L40,70 M40,40 L70,40" stroke="#4A4A4C" stroke-width="1" fill="none"/>
+  <path d="M1160,40 L1160,70 M1160,40 L1130,40" stroke="#4A4A4C" stroke-width="1" fill="none"/>
+  <path d="M40,590 L40,560 M40,590 L70,590" stroke="#4A4A4C" stroke-width="1" fill="none"/>
+  <path d="M1160,590 L1160,560 M1160,590 L1130,590" stroke="#4A4A4C" stroke-width="1" fill="none"/>
+</svg>
