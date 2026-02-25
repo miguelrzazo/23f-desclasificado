@@ -339,3 +339,56 @@
   text-underline-offset: 3px;
   text-decoration-thickness: 2px;
 }
+
+/* ---------- Prose Chapter ---------- */
+/* Typography & spacing for long-form chapter content */
+.prose-chapter {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+}
+
+.prose-chapter p {
+  margin-bottom: 1.25rem;
+}
+
+.prose-chapter h3 {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.prose-chapter strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.prose-chapter em {
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+.prose-chapter table {
+  border: 1px solid var(--border);
+}
+
+.prose-chapter table th {
+  color: var(--text-primary);
+}
+
+.prose-chapter a {
+  color: var(--stamp);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose-chapter a:hover {
+  opacity: 0.8;
+}
