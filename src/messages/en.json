@@ -88,7 +88,63 @@
   },
   "home": {
     "hero": "23-F DECLASSIFIED",
+    "subtitle": "154 documents. 45 years of secrecy. The full truth.",
     "tagline": "The documents Spain kept secret",
-    "cta": "Explore the documents"
+    "cta": "Explore the documents",
+    "scrollHint": "Discover the story",
+    "chaptersTitle": "The Chapters",
+    "chaptersSubtitle": "Seven acts of a night that changed Spain",
+    "chapter1": {
+      "title": "The Background",
+      "period": "1977–1981",
+      "subtitle": "From Málaga to the planning",
+      "docs": "24"
+    },
+    "chapter2": {
+      "title": "The Night",
+      "period": "23–24 Feb 1981",
+      "subtitle": "18 hours that changed Spain",
+      "docs": "38"
+    },
+    "chapter3": {
+      "title": "The CESID",
+      "period": "1980–1983",
+      "subtitle": "Intelligence in the shadows",
+      "docs": "19"
+    },
+    "chapter4": {
+      "title": "The Trial",
+      "period": "1982",
+      "subtitle": "Case 2/81",
+      "docs": "31"
+    },
+    "chapter5": {
+      "title": "The Shadows",
+      "period": "1981–1995",
+      "subtitle": "What remained unresolved",
+      "docs": "22"
+    },
+    "chapter6": {
+      "title": "The World Watches",
+      "period": "Feb–Mar 1981",
+      "subtitle": "The diplomatic reaction",
+      "docs": "12"
+    },
+    "chapter7": {
+      "title": "The Prisoners",
+      "period": "1981–1990",
+      "subtitle": "Detention and escape",
+      "docs": "8"
+    },
+    "docsLabel": "source documents",
+    "timelineTitle": "Timeline",
+    "timelineSubtitle": "The moments that defined the coup",
+    "timelineCta": "View full timeline",
+    "charactersTitle": "The Key Figures",
+    "charactersSubtitle": "The central characters of 23-F",
+    "charactersCta": "View all characters",
+    "mapTitle": "Explore the sites of the coup",
+    "mapSubtitle": "Congress, Zarzuela, Valencia, TVE — the stages of the longest night",
+    "mapCta": "Open the interactive map"
   }
 }

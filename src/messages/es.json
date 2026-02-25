@@ -88,7 +88,63 @@
   },
   "home": {
     "hero": "23-F DESCLASIFICADO",
+    "subtitle": "154 documentos. 45 años de secreto. La verdad completa.",
     "tagline": "Los documentos que España mantuvo en secreto",
-    "cta": "Explorar los documentos"
+    "cta": "Explorar los documentos",
+    "scrollHint": "Descubre la historia",
+    "chaptersTitle": "Los Capítulos",
+    "chaptersSubtitle": "Siete actos de una noche que cambió España",
+    "chapter1": {
+      "title": "Los Antecedentes",
+      "period": "1977–1981",
+      "subtitle": "De Málaga a la planificación",
+      "docs": "24"
+    },
+    "chapter2": {
+      "title": "La Noche",
+      "period": "23–24 feb 1981",
+      "subtitle": "18 horas que cambiaron España",
+      "docs": "38"
+    },
+    "chapter3": {
+      "title": "El CESID",
+      "period": "1980–1983",
+      "subtitle": "La inteligencia en las sombras",
+      "docs": "19"
+    },
+    "chapter4": {
+      "title": "El Juicio",
+      "period": "1982",
+      "subtitle": "Causa 2/81",
+      "docs": "31"
+    },
+    "chapter5": {
+      "title": "Las Sombras",
+      "period": "1981–1995",
+      "subtitle": "Lo que quedó sin resolver",
+      "docs": "22"
+    },
+    "chapter6": {
+      "title": "El Mundo Mira",
+      "period": "feb–mar 1981",
+      "subtitle": "La reacción diplomática",
+      "docs": "12"
+    },
+    "chapter7": {
+      "title": "Los Prisioneros",
+      "period": "1981–1990",
+      "subtitle": "Detención y fuga",
+      "docs": "8"
+    },
+    "docsLabel": "documentos fuente",
+    "timelineTitle": "Cronología",
+    "timelineSubtitle": "Los momentos que definieron el golpe",
+    "timelineCta": "Ver cronología completa",
+    "charactersTitle": "Los Protagonistas",
+    "charactersSubtitle": "Las figuras clave del 23-F",
+    "charactersCta": "Ver todos los personajes",
+    "mapTitle": "Explora los lugares del golpe",
+    "mapSubtitle": "Congreso, Zarzuela, Valencia, TVE — los escenarios de la noche más larga",
+    "mapCta": "Abrir el mapa interactivo"
   }
 }
