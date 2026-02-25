@@ -1,0 +1,341 @@
+/* ==========================================================================
+   23-F Desclasificado — Dossier Texture & Component Styles
+   ========================================================================== */
+
+/* ---------- Paper Texture ---------- */
+/* CSS-only paper grain using layered gradients (no image assets required) */
+.paper-texture {
+  background-color: var(--bg-card);
+  background-image:
+    /* Fine grain noise approximation via repeated tiny gradients */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(180, 160, 130, 0.03) 2px,
+      rgba(180, 160, 130, 0.03) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(180, 160, 130, 0.03) 2px,
+      rgba(180, 160, 130, 0.03) 4px
+    ),
+    /* Subtle radial vignette for aged-paper look */
+    radial-gradient(
+      ellipse at center,
+      transparent 60%,
+      rgba(180, 160, 130, 0.08) 100%
+    );
+}
+
+/* Darker aged paper variant */
+.paper-texture-aged {
+  background-color: var(--bg-secondary);
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 3px,
+      rgba(160, 140, 100, 0.04) 3px,
+      rgba(160, 140, 100, 0.04) 6px
+    ),
+    radial-gradient(
+      ellipse at center,
+      transparent 40%,
+      rgba(160, 140, 100, 0.12) 100%
+    );
+}
+
+/* ---------- Stamp Styles ---------- */
+.stamp-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px double var(--stamp);
+  color: var(--stamp);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 800;
+  padding: 0.35em 1em;
+  position: relative;
+  /* Worn ink effect: slight opacity variation */
+  opacity: 0.85;
+  /* Rough edges via subtle box-shadow */
+  box-shadow:
+    inset 0 0 0 1px rgba(196, 30, 30, 0.15),
+    0 0 0 1px rgba(196, 30, 30, 0.05);
+}
+
+.stamp-badge::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* Simulate uneven ink distribution */
+  background: repeating-linear-gradient(
+    120deg,
+    transparent 0%,
+    transparent 45%,
+    rgba(255, 255, 255, 0.08) 45%,
+    rgba(255, 255, 255, 0.08) 55%,
+    transparent 55%
+  );
+  pointer-events: none;
+}
+
+.stamp-badge--sm {
+  font-size: 0.65rem;
+  padding: 0.2em 0.6em;
+  border-width: 2px;
+}
+
+.stamp-badge--md {
+  font-size: 0.85rem;
+}
+
+.stamp-badge--lg {
+  font-size: 1.1rem;
+  padding: 0.45em 1.3em;
+  border-width: 4px;
+}
+
+/* ---------- Red Tape ---------- */
+.red-tape {
+  position: relative;
+  background-color: var(--stamp);
+  opacity: 0.92;
+  padding: 0.5rem 1.5rem;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  /* Subtle grain texture on tape */
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 1px,
+    rgba(255, 255, 255, 0.04) 1px,
+    rgba(255, 255, 255, 0.04) 2px
+  );
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.red-tape::before,
+.red-tape::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 12px;
+  background: inherit;
+  opacity: 0.7;
+}
+
+.red-tape::before {
+  left: -6px;
+  clip-path: polygon(100% 0, 100% 100%, 0 50%);
+}
+
+.red-tape::after {
+  right: -6px;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+/* ---------- Censored Photo ---------- */
+.censored-photo {
+  position: relative;
+  overflow: hidden;
+  background-color: #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Silhouette fallback using CSS gradients */
+.censored-photo__silhouette {
+  width: 60%;
+  height: 70%;
+  background: radial-gradient(
+    ellipse 50% 40% at 50% 30%,
+    #3a3a3a 0%,
+    #3a3a3a 100%
+  );
+  border-radius: 50% 50% 45% 45%;
+  position: relative;
+}
+
+.censored-photo__silhouette::after {
+  content: "";
+  position: absolute;
+  bottom: -30%;
+  left: -20%;
+  right: -20%;
+  height: 50%;
+  background: #3a3a3a;
+  border-radius: 40% 40% 0 0;
+}
+
+/* The black censor bar */
+.censored-photo__bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 35%;
+  height: 18%;
+  background-color: #000;
+  z-index: 2;
+}
+
+/* Category badge */
+.censored-photo__category {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  text-align: center;
+  z-index: 3;
+}
+
+.censored-photo__category--conspirador {
+  background-color: var(--stamp);
+  color: #fff;
+}
+
+.censored-photo__category--leal {
+  background-color: #2d6a4f;
+  color: #fff;
+}
+
+.censored-photo__category--politico {
+  background-color: #1d3557;
+  color: #fff;
+}
+
+.censored-photo__category--internacional {
+  background-color: #6c584c;
+  color: #fff;
+}
+
+/* Size variants */
+.censored-photo--sm {
+  width: 80px;
+  height: 100px;
+}
+
+.censored-photo--md {
+  width: 120px;
+  height: 150px;
+}
+
+.censored-photo--lg {
+  width: 180px;
+  height: 225px;
+}
+
+/* ---------- Document Card ---------- */
+.document-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.document-card:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.1),
+    0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+/* Manila folder edge along top */
+.document-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--accent-muted) 0%,
+    var(--border) 50%,
+    var(--accent-muted) 100%
+  );
+}
+
+/* ---------- Dossier Section ---------- */
+.dossier-section {
+  position: relative;
+  box-shadow:
+    2px 2px 8px rgba(0, 0, 0, 0.06),
+    -1px -1px 4px rgba(0, 0, 0, 0.02);
+}
+
+/* Folder tab */
+.dossier-tab {
+  position: absolute;
+  top: -1.5rem;
+  left: 1.5rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-bottom: none;
+  padding: 0.25rem 1rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  color: var(--text-secondary);
+  border-radius: 4px 4px 0 0;
+}
+
+/* Paper edge effect on right side */
+.dossier-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.04) 10%,
+    rgba(0, 0, 0, 0.06) 50%,
+    rgba(0, 0, 0, 0.04) 90%,
+    transparent 100%
+  );
+}
+
+/* ---------- Quote Block ---------- */
+.quote-block {
+  position: relative;
+  border-left: 4px solid var(--stamp);
+  padding-left: 1.25rem;
+}
+
+.quote-block__marks {
+  color: var(--stamp);
+  opacity: 0.3;
+  font-size: 2.5rem;
+  line-height: 1;
+  position: absolute;
+  top: -0.25rem;
+  left: 0.5rem;
+  font-family: Georgia, serif;
+}
+
+.quote-block__highlight {
+  text-decoration: underline;
+  text-decoration-color: var(--stamp);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+}

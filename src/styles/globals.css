@@ -1,0 +1,42 @@
+@import "./dossier.css";
+@import "./animations.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   23-F Desclasificado — Global Theme Variables
+   ========================================================================== */
+
+:root {
+  --bg-primary: #F5F0E8;
+  --bg-secondary: #EDE7D9;
+  --bg-card: #FDFBF7;
+  --text-primary: #1A1A1A;
+  --text-secondary: #4A4A4A;
+  --accent: #C41E1E;
+  --accent-dark: #8B1414;
+  --accent-muted: #D4A574;
+  --border: #D4C5A9;
+  --stamp: #C41E1E;
+}
+
+.dark {
+  --bg-primary: #1C1C1E;
+  --bg-secondary: #2C2C2E;
+  --bg-card: #3A3A3C;
+  --text-primary: #F5F0E8;
+  --text-secondary: #A0A0A0;
+  --accent: #E63946;
+  --accent-dark: #C41E1E;
+  --accent-muted: #D4A574;
+  --border: #4A4A4C;
+  --stamp: #E63946;
+}
+
+/* Base body styles */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
